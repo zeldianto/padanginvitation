@@ -1,0 +1,19 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": false,
+    "editor.insertSpaces": false,
+    "html.format.endWithNewline": true,
+    "html.format.wrapAttributes": "force",
+    "json.format.enable": false,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+    },
+	"emmet.includeLanguages": {
+        "ejs": "html",
+	},
+	"[css]": {
+		"editor.defaultFormatter": "vscode.css-language-features"
+	},
+}

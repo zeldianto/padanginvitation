@@ -1,0 +1,36 @@
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo" style="width: 150px;">
+                        <img src="<%= THIS %>/static/assets/site/images/logo.png" alt="padanginvitation.com">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <!-- <li class="scroll-to-section"><a href="#top" class="active">Home</a></li> -->
+                        <li class=""><a href="/">Home</a></li>
+                        <li class=""><a href="/catalog">Katalog</a></li>
+                        <li class=""><a href="/blog">Blog</a></li>
+                        <li class=""><a target="_blank" href="https://app.padanginvitation.com">Login</a></li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<script>
+    var currentUrl = window.location.href;
+    var menuItems = document.querySelectorAll('.main-nav ul.nav li a');
+    menuItems.forEach(function(item) {
+        if (item.href === currentUrl) {
+            item.classList.add('active');
+        }
+    });
+</script>

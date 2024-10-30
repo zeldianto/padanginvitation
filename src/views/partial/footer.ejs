@@ -1,0 +1,65 @@
+<section class="contact-us" id="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="contact" style="margin: 0 auto; max-width: 600px;" action="/" method="post" data-aos="flip-up">
+                    <div class="row" id="form-active">
+                        <div class="col-lg-12">
+                            <div class="section-heading">
+                                <h4>Tetap <em>Terhubung</em></h4>
+                                <p>Sesekali kami akan mengirimkan email menarik seputar info pernikahan dan promo
+                                    menarik lainnya.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <input type="hidden" id="url_api" value="<%= THIS_API %>">
+                                <input type="name" maxlength="100" name="name" id="name" placeholder="Nama kamu" autocomplete="on" required>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email kamu" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <button id="form-submit" class="main-gradient-button" style="width: 120px;">Kirim</button>
+                                <button id="form-loading" class="main-gradient-button" style="display: none; width: 120px;" disabled>Loading</button>
+                            </fieldset>
+                        </div>
+                    </div>
+					<div class="row" id="form-success" style="display: none;">
+						<div class="col-lg-12">
+                            <div class="section-heading">
+                                <h4>Terimakasih <br> <em>Zeldianto Eka Putra!</em></h4>
+                                <p>Sesekali kami akan mengirimkan email menarik seputar info pernikahan dan promo
+                                    menarik lainnya.</p>
+                            </div>
+                        </div>
+					</div>
+                </form>
+            </div>
+            <div class="col-lg-12">
+                <ul class="social-iconss">
+                    <li data-aos="flip-right"><a target="_blank" href="mailto:dazelpro@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
+                    <li data-aos="flip-right"><a target="_blank" href="https://instagram.com/padanginvitation"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li data-aos="flip-right"><a target="_blank" href="https://wa.me/6283181887801"><i class="fa-brands fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-12">
+                <p class="copyright">Copyright © 2022 - <script>
+                        document.write(new Date().getFullYear())
+                    </script> KOCAN KREATIF GRUP. All Rights Reserved.
+                    <br>
+                    Handcrafted results with ❤ somewhere in the world.
+                    <br>
+                    <!-- Powered by
+                    <br>
+                    <a target="_blank" href="https://dazelpro.com">www.dazelpro.com</a> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="<%= THIS %>/static/assets/site/js/subscribe.js"></script>
