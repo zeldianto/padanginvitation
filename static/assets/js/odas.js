@@ -1,49 +1,54 @@
 console.log('odas variant is running');
 
 const body = document.body;
-const idOrder = document.getElementById('id_order').value;
-const idGuest = document.getElementById('id-tamu').value;
+const idOrder = document.getElementById('slug').value;
+const idGuest = document.getElementById('id_tamu').value;
 const base_url = document.getElementById('url_api').value;
 const scrollY = body.style.top;
 body.style.position = 'fixed';
+
 main();
 
 function main() {
     getGrettingCard();
-	fetch(base_url + '/update-views?idGuest=' + idGuest, {});
+	if (idGuest) {
+		fetch(base_url + '/update-views?idGuest=' + idGuest, {});
+	}
 }
 
 function getGrettingCard() {
-    if (idOrder && idGuest) {
+    if (idOrder) {
         (async () => {
             const rawResponse = await fetch(base_url + '/gretting-card?idOrder=' + idOrder, {});
             const content = await rawResponse.json();
             if (content['success']) {
-                if (content.data.greeting[0]) {
-                    let listMsg = '';
-					document.getElementById('section-msg').style.display = 'block';
+                let listMsg = '';
+                if (content.data.greeting.length > 0) {
+                    document.getElementById('section-msg').style.display = 'block';
                     for (let i = 0; i < content.data.greeting.length; i++) {
+						console.log(content.data.greeting[i].formatted_created_at)
                         listMsg += `
-							<div class="msg-item mb-10">
-								<div class="user-icon">
-									<div class="circle">
-										<span class="initials font-primary">${getInitial(content.data.greeting[i].name)}</span>
-									</div>
-								</div>
-								<div class="user-content">
-									<div class="font-primary fs-16">${content.data.greeting[i].name}</div>
-									<div class="font-primary fs-10">${dateFormating(content.data.greeting[i].formatted_created_at)}</div>
-									<div class="font-primary fs-14 fw-300">
-										${content.data.greeting[i].message}
-									</div>
-								</div>
-							</div>
-						`;
+                            <div class="msg-item mb-10">
+                                <div class="user-icon">
+                                    <div class="circle">
+                                        <span class="initials font-primary">${getInitial(content.data.greeting[i].name)}</span>
+                                    </div>
+                                </div>
+                                <div class="user-content">
+                                    <div class="font-primary fs-16">${content.data.greeting[i].name}</div>
+                                    <div class="font-primary fs-10">${dateFormating(content.data.greeting[i].created_at)}</div>
+                                    <div class="font-primary fs-14 fw-300">
+                                        ${content.data.greeting[i].message}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
                     }
-                    document.getElementById('msg-area').innerHTML = listMsg;
                 } else {
-                    document.getElementById('section-msg').style.display = 'none';
+                    listMsg = '<div class="font-primary fs-14 fw-300">Belum ada ucapan</div>';
+                    document.getElementById('section-msg').style.display = 'block';
                 }
+                document.getElementById('msg-area').innerHTML = listMsg;
                 document.getElementById('btn-kirim-disable').style.display = 'none';
                 document.getElementById('btn-kirim').style.display = 'block';
             } else {
@@ -55,12 +60,12 @@ function getGrettingCard() {
     }
 }
 
+
 function sendGretting() {
     document.getElementById('btn-kirim-disable').style.display = 'block';
     document.getElementById('btn-kirim').style.display = 'none';
     let form = {
         idOrder: idOrder,
-        idUser: document.getElementById('id-tamu').value,
         name: document.getElementById('nama-tamu').value,
         message: document.getElementById('msg-tamu').value
     };
@@ -92,7 +97,7 @@ function sendGretting() {
 
 function sendConfirm() {
     let form = {
-        idUser: document.getElementById('id-tamu').value,
+        idUser: document.getElementById('id_tamu').value,
         confirm: getValueRadio('confirm'),
         numberOfGuest: document.getElementById('jml-tamu').value
     };
@@ -139,7 +144,9 @@ function getInitial(name) {
 }
 
 function dateFormating(date) {
-	return date
+	const dateFormat = new Date(date);
+    return dateFormat.toLocaleString('id-ID', { timeZone: 'Asia/Jakarta', dateStyle: 'long', timeStyle: 'medium' });
+	// return date
 }
 
 function closeNav() {

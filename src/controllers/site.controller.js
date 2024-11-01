@@ -1,6 +1,6 @@
 const { formatFullDate, formatTime, formatDay, formatMonth, formatDate } = require('node-format-date');
 const { URL_API, URL_FE } = require('../configs/url.config.js');
-const { getSiteData } = require('../models/queries.js');
+const { getSiteData, getOrderData } = require('../models/queries.js');
 const sitemapConfig = require('../configs/sitemap.config.js');
 
 exports.home = async (req, res) => {
@@ -129,12 +129,26 @@ exports.invitationV2 = async (req, res) => {
 exports.invitationV3 = async (req, res) => {
 	let slug = req.params.slug;
 	let guest = req.query.guest;
-	console.log(slug)
-	console.log(guest)
 
-	
-    res.render('production/' + slug, {
-        THIS: URL_FE,
-		GUEST: guest
-    });
+	try {
+        const query = await getOrderData(slug, guest);
+        if (query) {
+            res.render('production/' + query.order.slug, {
+				formatDay: formatDay,
+                formatDate: formatDate,
+				THIS: URL_FE,
+                THIS_API: URL_API,
+				SLUG: query.order.slug,
+				TIMER: query.order.date,
+				GUEST_ID: query.guestInfo ? query.guestInfo.id : '',
+				GUEST_NAME: query.guestInfo ? query.guestInfo.name : '',
+				GUEST_STATUS_CONFIRM:query.guestInfo ? query.guestInfo.confirm : '',
+            });
+        } else {
+            res.redirect('/');
+        }
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
 };

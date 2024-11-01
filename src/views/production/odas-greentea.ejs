@@ -38,9 +38,30 @@
 	<link rel="stylesheet" href="<%= THIS %>/static/assets/css/color.css">
 	<!-- END -->
 	<style>
-		#cover.cover-overlay {
-			background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdn.dazelpro.com/uploads/dazelinv/theme/odas-ocean-cover-default.jpg');
-			/* background-size: cover; */
+		@media (min-width: 768px) { 
+			/* Desktop */
+			#cover {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdn.dazelpro.com/uploads/dazelinv/gallery/65493_nZhzT].jpg');
+			}
+		}
+
+		@media (max-width: 767px) {
+			/* Mobile */
+			#cover {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdn.dazelpro.com/uploads/dazelinv/gallery/65493_nZhzT].jpg');
+			}
+		}
+
+		@media (min-width: 768px) {
+			.odas-header {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.dazelpro.com/uploads/dazelinv/gallery/65493_Ae2K15.jpg');
+			}
+		}
+
+		@media (max-width: 767px) {
+			.odas-header {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.dazelpro.com/uploads/dazelinv/gallery/65493_Ae2K15.jpg');
+			}
 		}
 	</style>
 </head>
@@ -58,20 +79,22 @@
 					<h1 class="font-tertiary fs-40 fw-600 mb-10 cl-greentea"
 						data-aos="fade-up"
 						data-aos-duration="1500">
-						Zeldianto & Desy
+						Arnold & Fitri
 					</h1>
 					<div class="font-primary fs-16 fw-300 mb-15 cl-white"
 						data-aos="fade-down"
 						data-aos-duration="1500">
-						Sabtu, 09 November 2024
+						Sabtu, 23 November 2024
 					</div>
 				</div>
 				<div class="div-bottom">
-					<div class="card-tamu">
-						<div class="font-primary fs-10 fw-300 mb-15 cl-white">Kepada Yth.<br>Bapak/Ibu/Saudara/i</div>
-						<div class="font-primary fs-18 fw-500 mb-15 cl-white"> Apridestio Fajri & Partner<br></div>
-						<div class="font-primary fs-10 fw-300  cl-white">di Tempat</div>
-					</div>
+					<% if (GUEST_ID) { %>
+						<div class="card-tamu">
+							<div class="font-primary fs-10 fw-300 mb-15 cl-white">Kepada Yth.<br>Bapak/Ibu/Saudara/i</div>
+							<div class="font-primary fs-18 fw-500 mb-15 cl-white"> <%= GUEST_NAME %><br></div>
+							<div class="font-primary fs-10 fw-300  cl-white">di Tempat</div>
+						</div>
+					<% } %>
 					<div class="pt-15">
 						<button onclick="closeNav()"
 							class="odas-btn btn-buka">Buka Undangan</button>
@@ -79,13 +102,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="odas-header"
-			style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://cdn.dazelpro.com/uploads/dazelinv/theme/odas-pink-home-default.jpg);">
+		<div class="odas-header" id="odas-header">
 			<div class="content">
 				<h1 class="font-tertiary fs-40 fw-600 mb-10 cl-white"
 					data-aos="fade-up"
-					data-aos-duration="1500">Zeldianto
-					& Desy</h1>
+					data-aos-duration="1500">Arnold & Fitri</h1>
 				<div class="font-secondary fs-22 fw-600 mb-15 cl-white"
 					data-aos="fade-down"
 					data-aos-duration="1500">We
@@ -122,10 +143,10 @@
 										class="img-responsive">
 								</div>
 								<div class="desc-groom">
-									<h3 class="font-tertiary">Zeldianto Eka Putra, S.Kom</h3>
-									<p class="font-primary fw-300 fs-14">Putra dari Bpk Hasan Kardin & Ibu Zulbaidah</p>
+									<h3 class="font-tertiary">Arnold Sanjaya, S.Kom</h3>
+									<p class="font-primary fw-300 fs-14">Putra dari Bpk Zulkifli Hasan & Ibu Zuraida</p>
 									<a class="couple-link"
-										href="https://instagram.com/zeldiantoep"
+										href="https://instagram.com/arnoldaja"
 										target="_blank"
 										rel="noopener noreferrer">
 										<i class="fa-brands fa-instagram"></i>
@@ -142,11 +163,11 @@
 										class="img-responsive">
 								</div>
 								<div class="desc-bride">
-									<h3 class="font-tertiary">Desy Gusrita, S.Pd</h3>
-									<p class="font-primary fw-300 fs-14">Putri dari Bpk Agus Prigendi & Ibu Syamsri Murni
+									<h3 class="font-tertiary">Fitri Anggraini, S.Pd</h3>
+									<p class="font-primary fw-300 fs-14">Putri dari Bpk Tatang Sutarman & Ibu Samsinar Suhaimi
 									</p>
 									<a class="couple-link"
-										href="http://instagram.com/desy_dg"
+										href="http://instagram.com/fifit"
 										target="_blank"
 										rel="noopener noreferrer">
 										<i class="fa-brands fa-instagram"></i>
@@ -183,15 +204,15 @@
 							<h3 class="font-tertiary fw-600">Akad Nikah</h3>
 							<hr>
 							<p class="font-primary fw-300">Bertempat di:</p>
-							<p class="font-primary fw-500">Masjid Al-Hikmah</p>
-							<p class="font-primary fw-300">Komplek Perumahan Merpati Agung Blok B No. 3</p>
+							<p class="font-primary fw-500">Rumah Mempelai Wanita</p>
+							<p class="font-primary fw-300">Komp. Patimura II Nomor 31C Padang</p>
 							<i class="fas fa-calendar-day"></i>
-							<p class="font-primary fw-300">Sabtu, 21 Mei 2025</p>
+							<p class="font-primary fw-300">Jumat, 22 November 2024</p>
 							<i class="fas fa-clock"></i>
 							<p class="font-primary fw-300">
-								09:00 s/d Selesai
+								08:00 s/d 10:00
 							</p>
-							<a href="#" target="_blank" class="odas-btn btn-map">
+							<a href="https://google.com/maps" target="_blank" class="odas-btn btn-map">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map mb-5" viewBox="0 0 16 16">
 									<path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
 									<path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
@@ -210,15 +231,15 @@
 							<h3 class="font-tertiary fw-600">Resepsi</h3>
 							<hr>
 							<p class="font-primary fw-300">Bertempat di:</p>
-							<p class="font-primary fw-500">Kediaman Mempelai Wanita</p>
-							<p class="font-primary fw-300">Komplek Perumahan Merpati Agung Blok B No. 3</p>
+							<p class="font-primary fw-500">Rumah Mempelai Pria</p>
+							<p class="font-primary fw-300">Komp. Perumahan ABRI Gang Cempaka Indah Nomor 4 Jakarta Selatan</p>
 							<i class="fas fa-calendar-day"></i>
-							<p class="font-primary fw-300">Sabtu, 21 Mei 2025</p>
+							<p class="font-primary fw-300">Sabtu, 23 November 2024</p>
 							<i class="fas fa-clock"></i>
 							<p class="font-primary fw-300">
-								09:00 s/d Selesai
+								08:00 s/d 18:00
 							</p>
-							<a href="#" target="_blank" class="odas-btn btn-map">
+							<a href="https://google.com/masp" target="_blank" class="odas-btn btn-map">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map mb-5" viewBox="0 0 16 16">
 									<path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
 									<path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
@@ -341,31 +362,25 @@
 								data-aos="flip-down"
 								data-aos-duration="1500">
 								<img class="mklbItem"
-									src="<%= THIS %>/static/assets/img/gallery/1.jpg" />
+									src="https://cdn.dazelpro.com/uploads/dazelinv/gallery/65493_nZhzT].jpg" />
 							</a>
 							<a href="javascript:void(0)"
 								data-aos="flip-down"
 								data-aos-duration="1500">
 								<img class="mklbItem"
-									src="<%= THIS %>/static/assets/img/gallery/2.jpg" />
+									src="https://cdn.dazelpro.com/uploads/dazelinv/gallery/65493_Ae2K15.jpg" />
 							</a>
 							<a href="javascript:void(0)"
 								data-aos="flip-down"
 								data-aos-duration="1500">
 								<img class="mklbItem"
-									src="<%= THIS %>/static/assets/img/gallery/3.jpg" />
+									src="https://cdn.dazelpro.com/uploads/dazelinv/gallery/65493_aoHlr].jpg" />
 							</a>
 							<a href="javascript:void(0)"
 								data-aos="flip-down"
 								data-aos-duration="1500">
 								<img class="mklbItem"
-									src="<%= THIS %>/static/assets/img/gallery/4.jpg" />
-							</a>
-							<a href="javascript:void(0)"
-								data-aos="flip-down"
-								data-aos-duration="1500">
-								<img class="mklbItem"
-									src="<%= THIS %>/static/assets/img/gallery/5.jpg" />
+									src="https://cdn.dazelpro.com/uploads/dazelinv/gallery/65493_Fdk791.jpg" />
 							</a>
 						</div>
 					</div>
@@ -395,72 +410,12 @@
 							data-aos-duration="1500">
 							<p class="text-end"><img src="<%= THIS %>/static/assets/img/bank/bca.png"
 									alt=""></p>
-							<div class="text-start font-primary fs-14 fw-300">a/n Andra Ramadhan</div>
+							<div class="text-start font-primary fs-14 fw-300">a/n Arnold Sanjaya</div>
 							<p class="text-start font-primary fs-22">
-								30.00340.00
+								9980992
 							</p>
 							<p class="text-start">
-								<button class="odas-btn btn-salin" onclick="copyValue('30.00340.00')">
-									<svg xmlns="http://www.w3.org/2000/svg"
-										width="16"
-										height="16"
-										fill="currentColor"
-										class="bi bi-clipboard-heart mb-5"
-										viewBox="0 0 16 16">
-										<path fill-rule="evenodd"
-											d="M5 1.5A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm5 0a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Z" />
-										<path
-											d="M3 1.5h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z" />
-										<path
-											d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982Z" />
-									</svg>
-									Salin
-								</button>
-							</p>
-						</div>
-					</div>
-					<div class="col-sm-12 mb-15">
-						<div class="card-bank bsm"
-							data-aos="flip-right"
-							data-aos-duration="1500">
-							<p class="text-end"><img src="<%= THIS %>/static/assets/img/bank/bsi.png"
-									alt=""></p>
-							<div class="text-start font-primary fs-14 fw-300">a/n Andra Ramadhan</div>
-							<p class="text-start font-primary fs-22">
-								30.00340.00
-							</p>
-							<p class="text-start">
-								<button class="odas-btn btn-salin" onclick="copyValue('30.00340.00')">
-									<svg xmlns="http://www.w3.org/2000/svg"
-										width="16"
-										height="16"
-										fill="currentColor"
-										class="bi bi-clipboard-heart mb-5"
-										viewBox="0 0 16 16">
-										<path fill-rule="evenodd"
-											d="M5 1.5A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm5 0a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Z" />
-										<path
-											d="M3 1.5h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z" />
-										<path
-											d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982Z" />
-									</svg>
-									Salin
-								</button>
-							</p>
-						</div>
-					</div>
-					<div class="col-sm-12 mb-15">
-						<div class="card-bank bri"
-							data-aos="flip-right"
-							data-aos-duration="1500">
-							<p class="text-end"><img src="<%= THIS %>/static/assets/img/bank/bri.png"
-									alt=""></p>
-							<div class="text-start font-primary fs-14 fw-300 cl-white">a/n Andra Ramadhan</div>
-							<p class="text-start font-primary fs-22 cl-white">
-								30.00340.00
-							</p>
-							<p class="text-start">
-								<button class="odas-btn btn-salin" onclick="copyValue('30.00340.00')">
+								<button class="odas-btn btn-salin" onclick="copyValue('9980992')">
 									<svg xmlns="http://www.w3.org/2000/svg"
 										width="16"
 										height="16"
@@ -496,10 +451,9 @@
 										d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
 								</svg>
 							</div>
-							<div class="text-start font-primary fs-16">a/n Andra Ramadhan</div>
+							<div class="text-start font-primary fs-16">a/n Arnold Sanjaya</div>
 							<p class="text-start font-primary fs-14 fw-300">
-								Komplek Perumahan Merpati Agung Blok B No. 3 Kel. Delima Kec. Binawidya Kota Pekanbaru -
-								Riau
+								Komplek Perumahan Merpati Agung Blok B No. 3 Kel. Delima Kec. Binawidya Kota Pekanbaru - Riau
 							</p>
 							<p class="text-start">
 								<button class="odas-btn btn-salin"
@@ -525,13 +479,14 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="odas-event"
 			id="odas-chat"
 			style="background:linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../../../static/assets/img/odas-bg-pattern.jpg);">
 			<div class="container text-center">
 				<div class="row justify-content-sm-center">
 					<div class="col-sm-12 mb-50">
-						<h2 class="font-secondary fs-60 fw-600 cl-greentea"
+						<h2 class="font-secondary fs-60 fw-600 cl-pink"
 							data-aos="fade-down"
 							data-aos-duration="1500">
 							Wish for us</h2>
@@ -544,10 +499,12 @@
 					<div class="col-sm-12"
 						data-aos="flip-left"
 						data-aos-duration="1500">
+						
 						<div class="form-floating mb-3">
 							<input type="email"
 								class="form-control"
 								id="nama-tamu"
+								value="<%= GUEST_NAME %>"
 								placeholder="name@example.com">
 							<label for="nama-tamu">Nama</label>
 						</div>
@@ -566,7 +523,7 @@
 					<div class="col-sm-12 mb-100"
 						data-aos="flip-left"
 						data-aos-duration="1500">
-						<button class="odas-btn btn-kirim">
+						<button id="btn-kirim" onclick="sendGretting()" class="odas-btn btn-kirim">
 							<svg xmlns="http://www.w3.org/2000/svg"
 								width="20"
 								height="20"
@@ -578,116 +535,76 @@
 							</svg>
 							Kirim
 						</button>
+						<button id="btn-kirim-disable" class="btn-kirim-disable">
+							<div class="spinner-border" role="status">
+								<span class="sr-only">Loading...</span>
+							</div>
+						</button>
 					</div>
-					<div class="col-sm-12 mb-50">
-						<div class="msg-area"
-							data-aos="fade-down"
-							data-aos-duration="1500">
-							<div class="msg-item mb-10">
-								<div class="user-icon">
-									<div class="circle">
-										<span class="initials font-primary">MS</span>
-									</div>
-								</div>
-								<div class="user-content">
-									<div class="font-primary fs-16">Muhammad Sadikin</div>
-									<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-									<div class="font-primary fs-14 fw-300">Lorem Ipsum is simply dummy text of the
-										printing and typesetting industry. Lorem Ipsum has been the industry's
-										standard
-										dummy text ever since the 1500s, when an unknown printer took a galley of
-										type
-										and scrambled it to make a type specimen book</div>
-								</div>
+					<div id="section-msg">
+						<div class="mb-22">
+							<div class="font-secondary fs-44 fw-600 cl-pink mw-600"
+								data-aos="fade-up"
+								data-aos-duration="1500">
+								Harapan & do'a
 							</div>
-							<div class="msg-item mb-10">
-								<div class="user-icon">
-									<div class="circle">
-										<span class="initials font-primary">MS</span>
-									</div>
-								</div>
-								<div class="user-content">
-									<div class="font-primary fs-16">Muhammad Sadikin</div>
-									<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-									<div class="font-primary fs-14 fw-300">Lorem Ipsum is simply dummy text of the
-										printing and typesetting industry. Lorem Ipsum has been the industry's
-										standard
-										dummy text ever since the 1500s, when an unknown printer took a galley of
-										type
-										and scrambled it to make a type specimen book</div>
-								</div>
-							</div>
-							<div class="msg-item mb-10">
-								<div class="user-icon">
-									<div class="circle">
-										<span class="initials font-primary">MS</span>
-									</div>
-								</div>
-								<div class="user-content">
-									<div class="font-primary fs-16">Muhammad Sadikin</div>
-									<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-									<div class="font-primary fs-14 fw-300">Lorem Ipsum is simply dummy text of the
-										printing and typesetting industry</div>
-								</div>
-							</div>
-							<div class="msg-item mb-10">
-								<div class="user-icon">
-									<div class="circle">
-										<span class="initials font-primary">MS</span>
-									</div>
-								</div>
-								<div class="user-content">
-									<div class="font-primary fs-16">Muhammad Sadikin</div>
-									<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-									<div class="font-primary fs-14 fw-300">Lorem Ipsum bahagia</div>
-								</div>
-							</div>
-							<div class="msg-item mb-10">
-								<div class="user-icon">
-									<div class="circle">
-										<span class="initials font-primary">MS</span>
-									</div>
-								</div>
-								<div class="user-content">
-									<div class="font-primary fs-16">Muhammad Sadikin</div>
-									<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-									<div class="font-primary fs-14 fw-300">Lorem Ipsum is simply dummy text of the
-										printing and typesetting industry. Lorem Ipsum has been the industry's
-										standard
-										dummy text ever since the 1500s, when an unknown printer took a galley of
-										type
-										and scrambled it to make a type specimen book</div>
-								</div>
+						</div>
+						<div class="col-sm-12 mb-50">
+							<div class="msg-area"
+								data-aos="fade-down"
+								data-aos-duration="1500">
+								<div id="msg-area"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="odas-attending">
-			<div class="container text-center">
-				<div class="row justify-content-sm-center">
-					<div class="col-12 mb-50 text-center">
-						<h2 class="font-secondary fs-60 fw-600 cl-greentea"
-							data-aos="fade-down"
-							data-aos-duration="1500">
-							Are you attending?</h2>
-						<div class="font-primary fs-14 mw-600"
-							data-aos="fade-up"
-							data-aos-duration="1500">
-							Merupakan sebuah kebahagiaan untuk kami jika kamu berkenan hadir. Silahkan konfirmasi
-							lewat
-							tombol dibawah ini. Terima kasih.
+		<!-- Konfirmasi Tamu -->
+		<% if (GUEST_ID) { %>
+			<div class="odas-attending">
+				<div class="container text-center">
+					<div class="row justify-content-sm-center">
+						<div class="col-12 mb-50 text-center">
+							<h2 class="font-secondary fs-60 fw-600 cl-pink"
+								data-aos="fade-down"
+								data-aos-duration="1500">
+								Are you attending?</h2>
+							<div class="font-primary fs-14 mw-600"
+								data-aos="fade-up"
+								data-aos-duration="1500">
+								Merupakan sebuah kebahagiaan untuk kami jika kamu berkenan hadir. Silahkan konfirmasi
+								lewat
+								tombol dibawah ini. Terima kasih.
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-12">
-						<button class="odas-btn btn-kirim"
-							data-bs-toggle="modal"
-							data-bs-target="#exampleModal">Konfirmasi Kehadiran</button>
+						<% if (!GUEST_STATUS_CONFIRM) { %>
+							<div class="col-sm-12">
+								<button class="odas-btn btn-kirim"
+									id="btn-confirm"
+									data-bs-toggle="modal"
+									data-bs-target="#exampleModal">Konfirmasi Kehadiran</button>
+								<button class="odas-btn btn-kirim" id="btn-confirm-disable">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+										<path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+									</svg>
+									Terima kasih sudah konfirmasi
+								</button>
+							</div>
+						<% } else { %>
+							<div class="col-sm-12">
+								<button class="odas-btn btn-kirim">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+										<path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+									</svg>
+									Terima kasih sudah konfirmasi
+								</button>
+							</div>
+						<% } %>
 					</div>
 				</div>
 			</div>
-		</div>
+		<% } %>
 		<div class="odas-footer">
 			<div class="container text-center">
 				<div class="row justify-content-sm-center">
@@ -777,7 +694,7 @@
 	</div>
 	<!-- End -->
 	<!-- Audio -->
-	<audio src="https://cdn.dazelpro.com/uploads/dazelinv/audio/BxRKnjngjrgqYAtfdwn9Ua01I9EhpcAz.mp3"></audio>
+	<audio src="https://cdn.dazelpro.com/uploads/dazelinv/audio/BxRKnjngjrgqYAtfdwn9Ua01I9EhpcAz.mp"></audio>
 	<div class="play-stop">
 		<div id="btn-play">
 			<svg onclick="stopMusic()"
@@ -845,11 +762,15 @@
 						data-bs-dismiss="modal">Tutup</button>
 					<button type="button"
 						class="odas-btn btn-confirm"
-						data-bs-dismiss="modal">Konfirmasi</button>
+						data-bs-dismiss="modal" onclick="sendConfirm()">Konfirmasi</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="id_tamu" value="<%= GUEST_ID %>">
+	<input type="hidden" id="event_date_count" value="<%= TIMER %>">
+	<input type="hidden" id="slug" value="<%= SLUG %>">
+	<input type="hidden" id="url_api" value="<%= THIS_API %>">
 	<!-- End -->
 	<!-- SCRIPT PROPERTY -->
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -858,65 +779,29 @@
 		crossorigin="anonymous"></script>
 	<script src="<%= THIS %>/static/assets/js/lib/simplyCountdown.min.js"></script>
 	<script src="<%= THIS %>/static/assets/js/lib/mklb.js"></script>
+	<script src="<%= THIS %>/static/assets/js/odas.js"></script>
 	<script>
-		console.log("odas variant is running");
-
+		let dateEvent = document.getElementById('event_date_count').value;
 		AOS.init();
-		const d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
-		simplyCountdown(".timer", {
-			year: d.getFullYear(),
-			month: d.getMonth() + 1,
-			day: d.getDate()
-		});
+		
+		const currentDate = new Date();
+		const eventDate = new Date(dateEvent);
 
-		const body = document.body;
-		const scrollY = body.style.top;
-		body.style.position = "fixed";
-
-		function closeNav() {
-			document.getElementById("cover").style.height = "0%";
-			let scrollY = body.style.top;
-			body.style.position = "";
-			body.style.top = "";
-			window.scrollTo(0, parseInt(scrollY || "0") * -1);
-			playMusic();
-		}
-
-		function scrollToElement(elementId) {
-			let element = document.getElementById(elementId);
-			element.scrollIntoView({
-				block: "start",
-				behavior: "smooth"
+		if (currentDate.toDateString() === eventDate.toDateString()) {
+			// Acara sedang berlangsung
+			document.querySelector('.timer').style.display = 'none';
+			document.querySelector('.on-hold').style.display = 'block';
+		} else if (currentDate > eventDate) {
+			// Acara sudah berakhir
+			document.querySelector('.timer').style.display = 'none';
+			document.querySelector('.on-finish').style.display = 'block';
+		} else {
+			// Tampilkan timer countdown
+			simplyCountdown(".timer", {
+				year: eventDate.getFullYear(),
+				month: eventDate.getMonth() + 1,
+				day: eventDate.getDate() + 1
 			});
-		}
-
-		function playMusic() {
-			const audio = document.querySelector("audio");
-			audio.volume = 0.5;
-			audio.play();
-			document.getElementById("btn-play").style.display = "block";
-			document.getElementById("btn-stop").style.display = "none";
-		}
-
-		function stopMusic() {
-			const audio = document.querySelector("audio");
-			audio.pause();
-			document.getElementById("btn-play").style.display = "none";
-			document.getElementById("btn-stop").style.display = "block";
-		}
-
-		function copyValue(arr) {
-			navigator.clipboard.writeText(arr);
-			openSnackbar('Berhasil disalin');
-		}
-
-		function openSnackbar(arr) {
-			var x = document.getElementById('snackbar');
-			x.className = 'snackbar show';
-			x.innerHTML = arr;
-			setTimeout(function () {
-				x.className = x.className.replace('snackbar show', 'snackbar');
-			}, 3000);
 		}
 	</script>
 	<!-- END -->

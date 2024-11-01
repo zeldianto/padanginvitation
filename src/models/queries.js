@@ -70,10 +70,48 @@ async function getSiteData(slug, guest) {
     }
 }
 
+async function getOrderData(slug, guest) {
+    if (guest) {
+        if (/\D/.test(guest)) {
+            guest = '';
+        }
+    }
+    try {
+        const checkUrl = await connection.query(`
+			SELECT * FROM tbl_order WHERE slug = '${slug}'
+		`);
+        if (checkUrl[0][0]) {
+            // URL ditemukan
+            const orderData = checkUrl[0][0]; // Data order dari `tbl_order`
+            let guestData = null;
+
+            // Query kedua hanya dijalankan jika `guest` tersedia
+            if (guest) {
+                const guestQuery = await connection.query(`
+                    SELECT * FROM tbl_guest WHERE id = ${guest} AND slug = '${slug}'
+                `);
+                guestData = guestQuery[0][0] || null; // Data guest dari `tbl_guest`
+            }
+
+            // Struktur data yang akan dikembalikan
+            const data = {
+                order: orderData,
+                guestInfo: guestData
+            };
+            return data;
+        } else {
+            // URL tidak ditemukan
+            return null;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
 async function confirmGuest(data) {
     try {
         const query = await connection.query(`
-			UPDATE guests SET confirm = '${data.confirm}', numberOfGuest = '${data.numberOfGuest || 0}' WHERE id = '${data.idUser}'
+			UPDATE tbl_guest SET confirm = '${data.confirm}', number_of_guest = '${data.numberOfGuest || 0}' WHERE id = '${data.idUser}'
 		`);
         return query;
     } catch (error) {
@@ -84,7 +122,7 @@ async function confirmGuest(data) {
 async function subscription(data) {
     try {
         const query = await connection.query(`
-			INSERT INTO subscription 
+			INSERT INTO tbl_subscription 
 			(name, email) 
 			VALUES 
 			('${data.name}','${data.email}')
@@ -98,7 +136,7 @@ async function subscription(data) {
 async function getGreetingCard(params) {
     try {
         const query = await connection.query(`
-			SELECT *, DATE_FORMAT(createdAt, '%e %M %Y - %k:%i:%s') AS formatted_created_at FROM greetings WHERE idOrder = '${params}' AND status = 1 ORDER BY id DESC
+			SELECT *, DATE_FORMAT(created_at, '%e %M %Y - %k:%i:%s') AS formatted_created_at FROM tbl_gretting WHERE slug = '${params}' AND status = 1 ORDER BY id DESC
 		`);
         return query[0];
     } catch (error) {
@@ -109,7 +147,7 @@ async function getGreetingCard(params) {
 async function updateViews(idGuest) {
     try {
         const query = await connection.query(`
-			UPDATE guests SET view = COALESCE(view, 0) + 1 WHERE id = ${idGuest};
+			UPDATE tbl_guest SET view = COALESCE(view, 0) + 1 WHERE id = ${idGuest};
 		`);
         return query[0];
     } catch (error) {
@@ -121,10 +159,10 @@ async function saveGreetingCard(data) {
     let dateNow = moment().tz('Asia/Jakarta').format();
     try {
         const query = await connection.query(`
-			INSERT INTO greetings 
-			(idOrder, idUser, name, message, createdAt, updatedAt) 
+			INSERT INTO tbl_gretting 
+			(slug, name, message, status) 
 			VALUES 
-			('${data.idOrder}','${data.idUser}','${data.name}','${data.message}','${dateNow}','${dateNow}')
+			('${data.idOrder}','${data.name}','${data.message}',1)
 		`);
         return query;
     } catch (error) {
@@ -132,4 +170,4 @@ async function saveGreetingCard(data) {
     }
 }
 
-module.exports = { getSiteData, confirmGuest, getGreetingCard, saveGreetingCard, updateViews, subscription };
+module.exports = { getSiteData, getOrderData, confirmGuest, getGreetingCard, saveGreetingCard, updateViews, subscription };
