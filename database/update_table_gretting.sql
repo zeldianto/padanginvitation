@@ -1,0 +1,2 @@
+ALTER TABLE `tbl_gretting`
+ADD COLUMN `reply` TEXT DEFAULT NULL;

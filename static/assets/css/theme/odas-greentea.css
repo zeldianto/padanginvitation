@@ -703,6 +703,23 @@
 	text-align: left;
 	padding: 10px;
 }
+.msg-item-reply {
+	display: flex;
+	flex-direction: row;
+	padding-left: 30px;
+}
+
+.msg-item-reply>.user-icon {
+	width: 55px;
+}
+
+.msg-item-reply>.user-content {
+	background-color: #65b961a2;
+	width: 100%;
+	border-radius: 10px;
+	text-align: left;
+	padding: 10px;
+}
 
 .circle {
 	background-color: #66B96150;
@@ -710,6 +727,36 @@
 	height: 40px;
 	text-align: center;
 	width: 40px;
+}
+
+/* .msg-item-reply .circle {
+	background-color: #65b961a2;
+	border-radius: 50%;
+	height: 40px;
+	text-align: center;
+	width: 40px;
+} */
+
+.msg-item-reply .circle {
+    width: 40px; /* Lebar dan tinggi bulatan */
+    height: 40px;
+    background-color: #65b961a2; /* Warna background bulatan */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.msg-item-reply .circle .initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.msg-item-reply .circle svg {
+    width: 24px; /* Lebar dan tinggi ikon SVG */
+    height: 24px;
+    color: #0062ec; /* Warna ikon */
 }
 
 .initials {

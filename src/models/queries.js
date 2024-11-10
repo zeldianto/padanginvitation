@@ -136,7 +136,7 @@ async function subscription(data) {
 async function getGreetingCard(params) {
     try {
         const query = await connection.query(`
-			SELECT *, DATE_FORMAT(created_at, '%e %M %Y - %k:%i:%s') AS formatted_created_at FROM tbl_gretting WHERE slug = '${params}' AND status = 1 ORDER BY id DESC
+			SELECT tbl_gretting.name, tbl_gretting.message, tbl_gretting.status, tbl_gretting.created_at, tbl_gretting.updated_at, tbl_gretting.reply, tbl_user.name as mempelai, DATE_FORMAT(tbl_gretting.created_at, '%e %M %Y - %k:%i:%s') AS formatted_created_at FROM tbl_gretting join tbl_user on tbl_user.slug = tbl_gretting.slug WHERE tbl_gretting.slug = '${params}' AND tbl_gretting.status = 1 ORDER BY tbl_gretting.id DESC
 		`);
         return query[0];
     } catch (error) {
