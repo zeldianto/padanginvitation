@@ -130,6 +130,7 @@ body,
 html {
 	font-weight: 400;
 	font-size: 16px;
+	/* height: 100%; */
 	-ms-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -745,7 +746,7 @@ section.main-banner {
 	z-index: 2
 }
 
-.main-banner .right-image::after {
+/* .main-banner .right-image::after {
 	position: absolute;
 	background-image: url(../images/banner-right-dec.png);
 	width: 378px;
@@ -753,7 +754,7 @@ section.main-banner {
 	content: '';
 	right: -25%;
 	z-index: 1
-}
+} */
 
 .main-banner .header-text::after {
 	position: absolute;

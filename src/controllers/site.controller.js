@@ -24,6 +24,16 @@ exports.blog = async (req, res) => {
     });
 };
 
+exports.blogDetail = async (req, res) => {
+    let slug = req.params.slug;
+    res.render('blog/' + slug, {
+        THIS: URL_FE,
+		THIS_API: URL_API,
+		SLUG: slug
+    });
+};
+
+
 exports.sitemap = async (req, res) => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

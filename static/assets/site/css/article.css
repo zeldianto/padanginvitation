@@ -1,0 +1,24 @@
+.content {
+	color: rgba(0, 0, 0, 0.70) !important;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+	padding-bottom: 20px;
+}
+
+.content p {
+	font-size: 16px;
+	margin-bottom: 1rem;
+}
+
+.content a {
+	color: #ff407d;
+}
+
+.list-dots {
+	margin-bottom: 10px;
+}
+
+.list-dots li {
+	list-style-type: disc;
+	margin-left: 1.5em;
+	margin-bottom: 2px;
+}

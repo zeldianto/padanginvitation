@@ -140,3 +140,84 @@ swiper-slide img {
 	height: 100%;
 	object-fit: cover;
 }
+
+.card-undangan,
+.card-undangan-fisik {
+	text-align: center;
+	overflow: hidden;
+	padding-bottom: 50px;
+}
+
+.card-undangan>.title,
+.card-undangan-fisik>.title {
+	font-size: 18px;
+	font-weight: bold;
+	color: #ff407d;
+}
+
+.card-undangan-fisik>img {
+	margin-bottom: 20px;
+	border-radius: 10px;
+}
+
+.card-undangan:hover>img,
+.card-undangan-fisik:hover>img {
+	animation: shake 0.3s;
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(1px, 1px) rotate(0deg);
+	}
+
+	10% {
+		transform: translate(-1px, -2px) rotate(-1deg);
+	}
+
+	20% {
+		transform: translate(-3px, 0px) rotate(1deg);
+	}
+
+	30% {
+		transform: translate(3px, 2px) rotate(0deg);
+	}
+
+	40% {
+		transform: translate(1px, -1px) rotate(1deg);
+	}
+
+	50% {
+		transform: translate(-1px, 2px) rotate(-1deg);
+	}
+
+	60% {
+		transform: translate(-3px, 1px) rotate(0deg);
+	}
+
+	70% {
+		transform: translate(3px, 1px) rotate(-1deg);
+	}
+
+	80% {
+		transform: translate(-1px, -1px) rotate(1deg);
+	}
+
+	90% {
+		transform: translate(1px, 2px) rotate(0deg);
+	}
+
+	100% {
+		transform: translate(1px, -2px) rotate(-1deg);
+	}
+}
+
+.fs-7 {
+	font-size: 14px !important;
+}
+.fs-8 {
+	font-size: 12px !important;
+}
+
+.text-pink {
+	color: #ff407d;
+}
