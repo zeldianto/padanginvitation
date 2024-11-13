@@ -105,6 +105,19 @@
 	transition: all 0.3s ease-in-out;
 }
 
+.btn-demo-outline.active {
+	background: linear-gradient(-145deg, #ff407d 0, #1b3c73 100%);
+	padding: 8px 30px;
+	color: white;
+	font-size: 14px;
+	display: inline-block;
+	border-radius: 5px;
+	font-weight: 500;
+	transition: .3s;
+	border: none;
+	outline: 0;
+}
+
 .btn-demo:hover {
 	color: white;
 }
@@ -214,10 +227,41 @@ swiper-slide img {
 .fs-7 {
 	font-size: 14px !important;
 }
+
 .fs-8 {
 	font-size: 12px !important;
 }
 
 .text-pink {
 	color: #ff407d;
+}
+
+.article-image img {
+	object-fit: cover;
+	width: 100%;
+	height: 300px;
+}
+
+@media (max-width: 768px) {
+	.article-image img {
+		height: 200px !important;
+	}
+}
+
+.btn-share {
+    width: 30px; /* ukuran lebar tombol */
+    height: 30px; /* ukuran tinggi tombol, sama dengan lebar untuk bulat sempurna */
+    border-radius: 50%; /* membuat tombol menjadi bulat */
+    background: linear-gradient(-145deg, #ff407d 0, #1b3c73 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* menghilangkan border */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* transisi untuk efek hover */
+}
+
+.btn-share svg {
+    width: 24px;
+    height: 24px;
 }
