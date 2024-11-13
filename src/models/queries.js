@@ -109,6 +109,13 @@ async function getOrderData(slug, guest) {
 }
 
 async function confirmGuest(data) {
+	if (data.confirm === "TIDAK HADIR") {
+		data.numberOfGuest = 0
+	} else {
+		if (!data.numberOfGuest) {
+			data.numberOfGuest = 1
+		}
+	}
     try {
         const query = await connection.query(`
 			UPDATE tbl_guest SET confirm = '${data.confirm}', number_of_guest = '${data.numberOfGuest || 0}' WHERE id = '${data.idUser}'
