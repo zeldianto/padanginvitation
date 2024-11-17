@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-	const text = "invitation";
+	const text = "nvitation";
 	const element = document.getElementById("typing-effect");
 	let index = 0;
 	let isDeleting = false;

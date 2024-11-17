@@ -767,6 +767,12 @@ section.main-banner {
 	z-index: 1
 }
 
+@media (max-width: 768px) {
+	.main-banner .header-text::after {
+		background-image: none;
+	}
+}
+
 .main-banner .header-text h6 {
 	position: relative;
 	z-index: 2;
