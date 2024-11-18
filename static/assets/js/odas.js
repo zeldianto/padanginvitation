@@ -217,3 +217,7 @@ function openSnackbar(arr) {
         x.className = x.className.replace('snackbar show', 'snackbar');
     }, 3000);
 }
+
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
