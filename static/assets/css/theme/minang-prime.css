@@ -491,6 +491,31 @@ body::-webkit-scrollbar {
 	transition: background-color 0.3s ease;
 }
 
+.btn-kirim-disable {
+	cursor: no-drop !important;
+	opacity: .8;
+	padding: 10px 50px;
+	cursor: pointer;
+	background-color: #A64D00;
+	color: #D8CAA7;
+	border: none;
+	border-radius: 30px;
+	transition: background-color 0.3s ease;
+}
+
+.btn-confirm {
+	display: block;
+	background-color: #66B961;
+	color: white;
+	height: 40px;
+	padding: 0 20px
+}
+
+#btn-confirm-disable,
+#btn-kirim-disable {
+	display: none;
+}
+
 .msg-area {
 	padding-right: 10px;
 	margin: auto;

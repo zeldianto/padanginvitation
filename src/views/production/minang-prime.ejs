@@ -2,65 +2,43 @@
 <html lang="id">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible"
-		content="IE=edge">
-	<link rel="icon"
-		type="image/x-icon"
-		href="https://cdn.dazelpro.com/uploads/dazelinv/favicon.ico">
-	<title>Demo Invitation: Minang Prime</title>
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0">
-	<meta name="description"
-		content="Padang Invitation | Contoh template undangan pernikahan digital" />
-	<meta name="keywords"
-		content="Undangan Digital Termurah" />
-	<meta name="author"
-		content="dazelpro" />
+	<%- include('../partial/undangan-meta.ejs',
+		{
+		TITLE: "Adil & Fani"
+		,
+		DESC: "We are getting married, online invitation by Padang Invitation"
+		,
+		IMAGE: "https://padanginvitation.com/static/assets/img/minang-prime-1.jpg"
+		,
+		FAVICON: "https://cdn.dazelpro.com/uploads/dazelinv/favicon.ico"
+		})
+		%>
+		<!-- END -->
 
-	<!-- SEO -->
-	<meta property="og:title"
-		content="Demo Invitation: Minang Prime" />
-	<meta property="og:image"
-		content="https://cdn.dazelpro.com/uploads/dazelinv/banner.webp" />
-	<meta property="og:url"
-		content="<%= THIS %>" />
-	<meta property="og:site_name"
-		content="dazelinv" />
-	<meta property="og:description"
-		content="Padang Invitation | Contoh template undangan pernikahan digital" />
-
-	<meta name="twitter:title"
-		content="Demo Invitation: Minang Prime" />
-	<meta name="twitter:image"
-		content="https://cdn.dazelpro.com/uploads/dazelinv/banner.webp" />
-	<meta name="twitter:url"
-		content="<%= THIS %>" />
-	<meta name="twitter:card"
-		content="Padang Invitation | Contoh template undangan pernikahan digital" />
-	<meta name="robots"
-		content="noindex">
-	<!-- END -->
-
-	<!-- STYLING PROPERTY -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-		crossorigin="anonymous">
-	<link rel="stylesheet"
-		href="<%= THIS %>/static/assets/css/lib/simplyCountdown.theme.default.css" />
-	<link rel="stylesheet"
-		href="<%= THIS %>/static/assets/css/theme/minang-prime.css">
-	<link rel="stylesheet"
-		href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-	<link rel="stylesheet"
-		href="<%= THIS %>/static/assets/css/typography.css">
-	<link rel="stylesheet"
-		href="<%= THIS %>/static/assets/css/spacing.css">
-	<link rel="stylesheet"
-		href="<%= THIS %>/static/assets/css/color.css">
+		<!-- STYLING PROPERTY -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+			crossorigin="anonymous">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/lib/simplyCountdown.theme.default.css" />
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/theme/minang-prime.css">
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+			rel="stylesheet">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/typography.css">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/spacing.css">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/color.css">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/lib/snackbar.css" />
 
 </head>
+<div class="snackbar"
+	style="z-index: 999999;"
+	id="snackbar"></div>
 
 <body>
 	<div class="gear top-left"></div>
@@ -90,16 +68,25 @@
 					<p class="font-primary">Minggu, 04 Februari 2024</p>
 				</div>
 				<div class="div-bottom">
-					<div class="card-tamu">
-						<p class="fs-12">Kepada Yth. <br>Bapak/Ibu/Saudara/i</p>
-						<p class="font-primary fs-18 p-3"
-							data-aos="zoom-in"
-							data-aos-duration="1500">Bima Sakti & Keluarga</p>
-						<button onclick="closeNav()"
-							class="open-button"
-							data-aos="fade-up"
-							data-aos-duration="1500">Buka Undangan</button>
-					</div>
+					<% if
+						(GUEST_ID)
+						{
+						%>
+						<div class="card-tamu">
+							<p class="fs-12">Kepada Yth. <br>Bapak/Ibu/Saudara/i</p>
+							<p class="font-primary fs-18 p-3"
+								data-aos="zoom-in"
+								data-aos-duration="1500">
+								<%= GUEST_NAME
+									%>
+							</p>
+						</div>
+						<% }
+							%>
+							<button onclick="closeNav()"
+								class="open-button"
+								data-aos="fade-up"
+								data-aos-duration="1500">Buka Undangan</button>
 				</div>
 			</div>
 		</div>
@@ -517,10 +504,11 @@
 				<div class="form-floating mb-3"
 					data-aos="fade-up"
 					data-aos-duration="1500">
-					<input type="email"
+					<input type="text"
 						style="background-color: #B3882D; border: 3px solid #A94F00; border-radius: 20px; "
 						class="form-control"
 						id="nama-tamu"
+						value="<%= GUEST_NAME %>"
 						placeholder="name@example.com">
 					<label for="nama-tamu">Nama</label>
 				</div>
@@ -533,10 +521,12 @@
 						id="msg-tamu"></textarea>
 					<label for="msg-tamu">Ucapan untuk Mempelai</label>
 				</div>
-				<div class="text-end pb-5"
+				<div class="text-center pb-5"
 					data-aos="zoom-in-down"
 					data-aos-duration="1500">
-					<button class="btn-kirim">
+					<button id="btn-kirim"
+						onclick="sendGretting()"
+						class="btn-kirim">
 						<svg xmlns="http://www.w3.org/2000/svg"
 							width="20"
 							height="20"
@@ -548,110 +538,27 @@
 						</svg>
 						Kirim
 					</button>
+					<button id="btn-kirim-disable"
+						class="btn-kirim-disable">
+						<div class="spinner-border"
+							role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</button>
 				</div>
-				<div class="msg-area"
-					data-aos="fade-down"
-					data-aos-duration="1500">
-					<div class="msg-item mb-10">
-						<div class="user-icon">
-							<div class="circle">
-								<span class="initials font-primary">MS</span>
-							</div>
-						</div>
-						<div class="user-content">
-							<div class="font-primary fs-16">Muhammad Sadikin</div>
-							<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-							<div class="font-primary fs-14 fw-300">Lorem Ipsum is simply dummy text of the
-								printing and typesetting industry. Lorem Ipsum has been the industry's
-								standard
-								dummy text ever since the 1500s, when an unknown printer took a galley of
-								type
-								and scrambled it to make a type specimen book</div>
+				<div id="section-msg">
+					<div class="mb-22">
+						<div class="font-secondary fs-44 fw-600 cl-cream-old mw-600"
+							data-aos="fade-up"
+							data-aos-duration="1500">
+							Harapan & do'a
 						</div>
 					</div>
-					<div class="msg-item-reply mb-22">
-						<div class="user-icon">
-							<div class="circle">
-								<span class="font-primary">
-									<svg class="w-8 h-8 text-gray-800 dark:text-white"
-										aria-hidden="true"
-										xmlns="http://www.w3.org/2000/svg"
-										width="24"
-										height="24"
-										fill="black"
-										viewBox="0 0 24 24">
-										<path fill-rule="evenodd"
-											d="M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Zm3.683 7.73a1 1 0 1 0-1.414-1.413l-4.253 4.253-1.277-1.277a1 1 0 0 0-1.415 1.414l1.985 1.984a1 1 0 0 0 1.414 0l4.96-4.96Z"
-											clip-rule="evenodd" />
-									</svg>
-								</span>
-							</div>
-						</div>
-						<div class="user-content">
-							<div class="font-primary fs-16">Adil & Fani</div>
-							<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-							<div class="font-primary fs-14 fw-300">
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-							</div>
-						</div>
-					</div>
-					<div class="msg-item mb-10">
-						<div class="user-icon">
-							<div class="circle">
-								<span class="initials font-primary">MS</span>
-							</div>
-						</div>
-						<div class="user-content">
-							<div class="font-primary fs-16">Muhammad Sadikin</div>
-							<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-							<div class="font-primary fs-14 fw-300">Lorem Ipsum is simply dummy text of the
-								printing and typesetting industry. Lorem Ipsum has been the industry's
-								standard
-								dummy text ever since the 1500s, when an unknown printer took a galley of
-								type
-								and scrambled it to make a type specimen book</div>
-						</div>
-					</div>
-					<div class="msg-item mb-10">
-						<div class="user-icon">
-							<div class="circle">
-								<span class="initials font-primary">MS</span>
-							</div>
-						</div>
-						<div class="user-content">
-							<div class="font-primary fs-16">Muhammad Sadikin</div>
-							<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-							<div class="font-primary fs-14 fw-300">Lorem Ipsum is simply dummy text of the
-								printing and typesetting industry</div>
-						</div>
-					</div>
-					<div class="msg-item mb-10">
-						<div class="user-icon">
-							<div class="circle">
-								<span class="initials font-primary">MS</span>
-							</div>
-						</div>
-						<div class="user-content">
-							<div class="font-primary fs-16">Muhammad Sadikin</div>
-							<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-							<div class="font-primary fs-14 fw-300">Lorem Ipsum bahagia</div>
-						</div>
-					</div>
-					<div class="msg-item mb-10">
-						<div class="user-icon">
-							<div class="circle">
-								<span class="initials font-primary">MS</span>
-							</div>
-						</div>
-						<div class="user-content">
-							<div class="font-primary fs-16">Muhammad Sadikin</div>
-							<div class="font-primary fs-10">12 Mei 2023 - 11:11:40</div>
-							<div class="font-primary fs-14 fw-300">Lorem Ipsum is simply dummy text of the
-								printing and typesetting industry. Lorem Ipsum has been the industry's
-								standard
-								dummy text ever since the 1500s, when an unknown printer took a galley of
-								type
-								and scrambled it to make a type specimen book</div>
+					<div class="col-sm-12 mb-50">
+						<div class="msg-area"
+							data-aos="fade-down"
+							data-aos-duration="1500">
+							<div id="msg-area"></div>
 						</div>
 					</div>
 				</div>
@@ -671,109 +578,155 @@
 
 		</style>
 
-		<div class="attending">
-			<div class="container text-center">
-				<div class="row justify-content-sm-center">
-					<div class="col-12 mb-50 text-center">
-						<h2 class="font-secondary fs-60 fw-600 cl-cream-old"
-							data-aos="fade-down"
-							data-aos-duration="1500">
-							Are you attending?</h2>
-						<div class="font-primary fs-14 mw-600"
-							data-aos="fade-up"
-							data-aos-duration="1500">
-							Merupakan sebuah kebahagiaan untuk kami jika kamu berkenan hadir. Silahkan konfirmasi
-							lewat
-							tombol dibawah ini. Terima kasih.
+		<% if
+			(GUEST_ID)
+			{
+			%>
+			<div class="attending">
+				<div class="container text-center">
+					<div class="row justify-content-sm-center">
+						<div class="col-12 mb-50 text-center">
+							<h2 class="font-secondary fs-60 fw-600 cl-cream-old"
+								data-aos="fade-down"
+								data-aos-duration="1500">
+								Are you attending?</h2>
+							<div class="font-primary fs-14 mw-600"
+								data-aos="fade-up"
+								data-aos-duration="1500">
+								Merupakan sebuah kebahagiaan untuk kami jika kamu berkenan hadir. Silahkan konfirmasi
+								lewat
+								tombol dibawah ini. Terima kasih.
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-12">
-						<button class="odas-btn btn-kirim"
-							data-bs-toggle="modal"
-							data-bs-target="#exampleModal">Konfirmasi Kehadiran</button>
+						<% if
+							(!GUEST_STATUS_CONFIRM)
+							{
+							%>
+							<div class="col-sm-12">
+								<button class="btn-kirim"
+									data-bs-toggle="modal"
+									id="btn-confirm"
+									data-bs-target="#exampleModal">Konfirmasi Kehadiran</button>
+								<button class="btn-kirim-disable"
+									style="margin:auto;"
+									id="btn-confirm-disable">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										fill="currentColor"
+										class="bi bi-check2"
+										viewBox="0 0 16 16">
+										<path
+											d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+									</svg>
+									Terima kasih sudah konfirmasi
+								</button>
+							</div>
+							<% }
+								else
+								{
+								%>
+								<div class="col-sm-12">
+									<button class="btn-kirim">
+										<svg xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											fill="currentColor"
+											class="bi bi-check2"
+											viewBox="0 0 16 16">
+											<path
+												d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+										</svg>
+										Terima kasih sudah konfirmasi
+									</button>
+								</div>
+								<% }
+									%>
 					</div>
 				</div>
-			</div>
-			<div class="modal fade"
-				id="exampleModal"
-				tabindex="-1"
-				aria-labelledby="exampleModalLabel"
-				aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="font-primary fs-18"
-								id="exampleModalLabel">Konfirmasi Kehadiran</h1>
-						</div>
-						<div class="modal-body">
-							<div class="mb-3">
-								<div class="btn-group"
-									style="width: 100%;"
-									role="group"
-									aria-label="Basic radio toggle button group">
-									<input type="radio"
-										class="btn-check"
-										name="confirm"
-										id="btnradio1"
-										value="HADIR"
-										autocomplete="off"
-										checked>
-									<label class="btn btn-outline-primary"
-										style="border-color: #A64D00; color: #A64D00;"
-										for="btnradio1">Hadir</label>
+				<div class="modal fade"
+					id="exampleModal"
+					tabindex="-1"
+					aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="font-primary fs-18"
+									id="exampleModalLabel">Konfirmasi Kehadiran</h1>
+							</div>
+							<div class="modal-body">
+								<div class="mb-3">
+									<div class="btn-group"
+										style="width: 100%;"
+										role="group"
+										aria-label="Basic radio toggle button group">
+										<input type="radio"
+											class="btn-check"
+											name="confirm"
+											id="btnradio1"
+											value="HADIR"
+											autocomplete="off"
+											checked>
+										<label class="btn btn-outline-primary"
+											style="border-color: #A64D00; color: #A64D00;"
+											for="btnradio1">Hadir</label>
 
-									<input type="radio"
-										class="btn-check"
-										name="confirm"
-										id="btnradio2"
-										value="TIDAK HADIR"
-										autocomplete="off">
-									<label class="btn btn-outline-primary"
-										style="border-color: #A64D00; color: #A64D00;"
-										for="btnradio2">Tidak Hadir</label>
+										<input type="radio"
+											class="btn-check"
+											name="confirm"
+											id="btnradio2"
+											value="TIDAK HADIR"
+											autocomplete="off">
+										<label class="btn btn-outline-primary"
+											style="border-color: #A64D00; color: #A64D00;"
+											for="btnradio2">Tidak Hadir</label>
+									</div>
+								</div>
+								<div class="form-floating mb-3">
+									<input type="number"
+										class="form-control"
+										id="jml-tamu"
+										placeholder="0">
+									<label for="jml-tamu">Jumlah Tamu</label>
 								</div>
 							</div>
-							<div class="form-floating mb-3">
-								<input type="number"
-									class="form-control"
-									id="jml-tamu"
-									placeholder="0">
-								<label for="jml-tamu">Jumlah Tamu</label>
+							<div class="modal-footer">
+								<button type="button"
+									class="btn-tutup"
+									data-bs-dismiss="modal">Tutup</button>
+								<button type="button"
+									class="btn-confirm"
+									data-bs-dismiss="modal"
+									onclick="sendConfirm()">Konfirmasi</button>
 							</div>
 						</div>
-						<div class="modal-footer">
-							<button type="button"
-								class="btn-tutup"
-								data-bs-dismiss="modal">Tutup</button>
-							<button type="button"
-								class="btn-confirm"
-								data-bs-dismiss="modal">Konfirmasi</button>
-						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="footer">
-			<div class="container text-center">
-				<div class="row justify-content-sm-center">
-					<div class="col-12 text-center">
-						<div class="font-primary fs-14">
-							E-Invitation
-						</div>
-						<div class="font-primary fs-12 fw-300">
-							Handcrafted results with ❤ somewhere in the world.<br>
-							Powered by
-						</div>
-						<div class="font-primary fs-12 fw-300">
-							<a href="<%= THIS %>"
-								target="_blank"
-								class="cl-cream-old fw-400"
-								rel="noopener noreferrer">Padang Invitation</a>
+			<% }
+				%>
+				<div class="footer">
+					<div class="container text-center">
+						<div class="row justify-content-sm-center">
+							<div class="col-12 text-center">
+								<div class="font-primary fs-14">
+									E-Invitation
+								</div>
+								<div class="font-primary fs-12 fw-300">
+									Handcrafted results with ❤ somewhere in the world.<br>
+									Powered by
+								</div>
+								<div class="font-primary fs-12 fw-300">
+									<a href="<%= THIS %>"
+										target="_blank"
+										class="cl-cream-old fw-400"
+										rel="noopener noreferrer">Padang Invitation</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 	</div>
 
 
@@ -811,64 +764,52 @@
 	</div>
 	<!-- AUDIO END -->
 
+	<!-- PROPERTI FOR JS -->
+	<input type="hidden"
+		id="id_tamu"
+		value="<%= GUEST_ID %>">
+	<input type="hidden"
+		id="event_date_count"
+		value="<%= TIMER %>">
+	<input type="hidden"
+		id="slug"
+		value="<%= SLUG %>">
+	<input type="hidden"
+		id="url_api"
+		value="<%= THIS_API %>">
+	<!-- END -->
+
 	<!-- SCRIPT PROPERTY -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
 		crossorigin="anonymous"></script>
 	<script src="<%= THIS %>/static/assets/js/lib/simplyCountdown.min.js"></script>
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="<%= THIS %>/static/assets/js/minang-prime.js"></script>
 
 	<script>
 		AOS.init();
-		document.querySelectorAll('.gallery-item').forEach(item => {
-			item.addEventListener('click', function () {
-				const src = this.getAttribute('data-src');
-				document.getElementById('modalImage').src = src;
+
+		let dateEvent = document.getElementById('event_date_count').value;
+		const currentDate = new Date();
+		const eventDate = new Date(dateEvent);
+
+		if (currentDate.toDateString() === eventDate.toDateString()) {
+			// Acara sedang berlangsung
+			document.querySelector('.timer').style.display = 'none';
+			document.querySelector('.on-hold').style.display = 'block';
+		} else if (currentDate > eventDate) {
+			// Acara sudah berakhir
+			document.querySelector('.timer').style.display = 'none';
+			document.querySelector('.on-finish').style.display = 'block';
+		} else {
+			// Tampilkan timer countdown
+			simplyCountdown(".timer", {
+				year: eventDate.getFullYear(),
+				month: eventDate.getMonth() + 1,
+				day: eventDate.getDate() + 1
 			});
-		});
-		const d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
-		simplyCountdown(".timer", {
-			year: d.getFullYear(),
-			month: d.getMonth() + 1,
-			day: d.getDate()
-		});
-		const body = document.body;
-		body.style.position = 'fixed';
-
-		function closeNav() {
-			document.getElementById('cover').style.height = '0%';
-			let scrollY = body.style.top;
-			body.style.position = '';
-			body.style.top = '';
-			window.scrollTo(0, parseInt(scrollY || '0') * -1);
-			playMusic();
 		}
-
-		function playMusic() {
-			const audio = document.querySelector("audio");
-			audio.volume = 0.5;
-			audio.play();
-			document.getElementById("btn-play").style.display = "block";
-			document.getElementById("btn-stop").style.display = "none";
-		}
-
-		function stopMusic() {
-			const audio = document.querySelector('audio');
-			audio.pause();
-			document.getElementById('btn-play').style.display = 'none';
-			document.getElementById('btn-stop').style.display = 'block';
-		}
-
-		function stopMusic() {
-			const audio = document.querySelector("audio");
-			audio.pause();
-			document.getElementById("btn-play").style.display = "none";
-			document.getElementById("btn-stop").style.display = "block";
-		}
-
-		document.addEventListener("contextmenu", function (e) {
-			e.preventDefault();
-		});
 	</script>
 
 </body>
