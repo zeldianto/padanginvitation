@@ -5,4 +5,5 @@ module.exports = [
     { loc: 'https://padanginvitation.com/blog/rekomendasi-lagu-undangan-digital-pernikahan-menyentuh', lastmod: '2024-11-12', changefreq: 'monthly', priority: 0.9 },
     { loc: 'https://padanginvitation.com/blog/warna-undangan-digital-yang-sempurna-beserta-kode-warna', lastmod: '2024-11-13', changefreq: 'monthly', priority: 0.9 },
     { loc: 'https://padanginvitation.com/blog/cara-mengirim-undangan-digital-dengan-sopan', lastmod: '2024-11-13', changefreq: 'monthly', priority: 0.9 },
+    { loc: 'https://padanginvitation.com/blog/merancang-pernikahan-low-budged', lastmod: '2024-11-26', changefreq: 'monthly', priority: 0.9 },
 ];
