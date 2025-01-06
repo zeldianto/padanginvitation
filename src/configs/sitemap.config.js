@@ -7,4 +7,5 @@ module.exports = [
     { loc: 'https://padanginvitation.com/blog/cara-mengirim-undangan-digital-dengan-sopan', lastmod: '2024-11-13', changefreq: 'monthly', priority: 0.9 },
     { loc: 'https://padanginvitation.com/blog/merancang-pernikahan-low-budged', lastmod: '2024-11-26', changefreq: 'monthly', priority: 0.9 },
     { loc: 'https://padanginvitation.com/blog/menyesuaikan-biaya-foto-prewedding', lastmod: '2024-12-16', changefreq: 'monthly', priority: 0.9 },
+    { loc: 'https://padanginvitation.com/blog/undangan-online-bertema-minang-termurah', lastmod: '2025-01-07', changefreq: 'monthly', priority: 0.9 },
 ];
