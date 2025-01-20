@@ -17,6 +17,13 @@ exports.catalog = async (req, res) => {
     });
 };
 
+exports.catalogPrinted = async (req, res) => {
+    res.render('partial/catalog/fisik-more', {
+        THIS: URL_FE,
+        THIS_API: URL_API
+    });
+};
+
 exports.blog = async (req, res) => {
     res.render('blog', {
         THIS: URL_FE,

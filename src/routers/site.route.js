@@ -1,5 +1,5 @@
 const express = require('express');
-const { home, catalog, blog, blogDetail, invitationV3, sitemap } = require('../controllers/site.controller.js');
+const { home, catalog, blog, blogDetail, invitationV3, sitemap, catalogPrinted } = require('../controllers/site.controller.js');
 const { demoInvitation } = require('../controllers/demo.controller.js');
 
 const siteRoutes = express.Router();
@@ -7,6 +7,7 @@ const siteRoutes = express.Router();
 siteRoutes.get('/', home);
 siteRoutes.get('/sitemap.xml', sitemap);
 siteRoutes.get('/catalog', catalog);
+siteRoutes.get('/catalog/printed', catalogPrinted);
 siteRoutes.get('/blog', blog);
 siteRoutes.get('/blog/:slug', blogDetail);
 siteRoutes.get('/:slug', invitationV3);
