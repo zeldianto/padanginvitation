@@ -2,6 +2,7 @@ const { formatFullDate, formatTime, formatDay, formatMonth, formatDate } = requi
 const { URL_API, URL_FE } = require('../configs/url.config.js');
 const { getSiteData, getOrderData } = require('../models/queries.js');
 const sitemapConfig = require('../configs/sitemap.config.js');
+const printedData = require('../data/printed.data.js');
 
 exports.home = async (req, res) => {
     res.render('home', {
@@ -20,7 +21,8 @@ exports.catalog = async (req, res) => {
 exports.catalogPrinted = async (req, res) => {
     res.render('partial/catalog/fisik-more', {
         THIS: URL_FE,
-        THIS_API: URL_API
+        THIS_API: URL_API,
+		printedData,
     });
 };
 

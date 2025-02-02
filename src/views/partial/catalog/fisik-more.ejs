@@ -62,8 +62,26 @@
 
 	<section class="container">
         <table class="catalog-table">
-            <tbody>                
-                <tr data-aos="fade-up">
+            <tbody>
+				<% printedData.forEach(item => { %>
+					<tr data-aos="fade-up">
+						<td>
+							<img src="<%= THIS %><%= item.image %>" loading="lazy" alt="<%= item.name %>" class="viewer-image">
+						</td>
+						<td><%= item.name %></td>
+						<td>
+							<span class="text-pink fw-bold d-block"
+								style="font-size: 1.2em;">Rp. <%= (item.price * 100).toLocaleString() %> / 100pcs</span>
+						</td>
+						<td>
+							<a href="#"
+							data-model="<%= item.clicked_text %>"
+							class="btn-demo btn-whatsapp">
+							Order</a>
+						</td>
+					</tr>
+				<% }); %>   
+                <!-- <tr data-aos="fade-up">
                     <td>
 						<img src="<%= THIS %>/static/assets/site/images/catalog/songket.png" loading="lazy" alt="" class="viewer-image">
 					</td>
@@ -382,7 +400,7 @@
 						   Order
 						</a>
 					</td>
-				</tr>				
+				</tr>				 -->
             </tbody>
         </table>
     </section>
