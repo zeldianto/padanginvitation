@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+	<%- include('../partial/undangan-meta.ejs',
+		{
+		TITLE: "Ulfa & Tobi"
+		,
+		DESC: "We are getting married, online invitation by Padang Invitation"
+		,
+		IMAGE: "https://padanginvitation.com/static/assets/img/minang-prime-1-noimage.jpg"
+		,
+		FAVICON: "https://cdn.dazelpro.com/uploads/dazelinv/favicon.ico"
+		})
+		%>
+		<!-- END -->
+
+		<!-- STYLING PROPERTY -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+			crossorigin="anonymous">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/lib/simplyCountdown.theme.default.css" />
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/theme/minang-prime.css">
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+			rel="stylesheet">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/typography.css">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/spacing.css">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/color.css">
+		<link rel="stylesheet"
+			href="<%= THIS %>/static/assets/css/lib/snackbar.css" />
+
+</head>
+<div class="snackbar"
+	style="z-index: 999999;"
+	id="snackbar"></div>
+
+<body>
+	<div class="gear top-left"></div>
+	<div class="gear top-right"></div>
+	<div class="gear bottom-left"></div>
+	<div class="gear bottom-right"></div>
+	<img class="frame-top"
+		src="<%= THIS %>/static/assets/img/minang-prime-frame-top.png"
+		alt="">
+	<img class="frame-bottom"
+		src="<%= THIS %>/static/assets/img/minang-prime-frame-top.png"
+		alt="">
+
+	<div class="minang-prime">
+		<div id="cover"
+			class="cover-overlay">
+			<div class="content">
+				<div class="div-top">
+					<img data-aos="fade-down"
+						data-aos-duration="1500"
+						src="<%= THIS %>/static/assets/img/minang-prime-rumah-gadang.png"
+						alt="">
+					<h1 class="font-primary fs-16 mt-4">Maimbau Baralek</h1>
+					<h2 class="font-secondary fw-bold fs-60 mt-4"
+						data-aos="fade-down"
+						data-aos-duration="1500">Ulfa & Tobi</h2>
+					<p class="font-primary">Senin, 26 Mei 2025</p>
+				</div>
+				<div class="div-bottom">
+					<% if
+						(GUEST_ID)
+						{
+						%>
+						<div class="card-tamu">
+							<p class="fs-12">Kepada Yth. <br>Bapak/Ibu/Saudara/i</p>
+							<p class="font-primary fs-18 p-3"
+								data-aos="zoom-in"
+								data-aos-duration="1500">
+								<%= GUEST_NAME
+									%>
+							</p>
+						</div>
+						<% }
+							%>
+							<button onclick="closeNav()"
+								class="open-button"
+								data-aos="fade-up"
+								data-aos-duration="1500">Buka Undangan</button>
+				</div>
+			</div>
+		</div>
+		<div class="opening mw-600 text-center">
+			<div class="frame">
+				<img src="<%= THIS %>/static/assets/img/minang-prime-1-noimage.jpg"
+					alt="">
+			</div>
+			<div class="p-2">
+				<p class="font-tertiary fs-20 fw-bold">Assalamu'alaikum Wr. Wb.</p>
+				<p class="font-primary fs-14 fw-300">Tanpa mengurangi rasa hormat, <br>kami bermaksud mengundang
+					Bapak/Ibu/Saudara/i <br>pada acara resepsi pernikahan kami</p>
+			</div>
+		</div>
+		<div class="bridegroom mw-600 text-center">
+			<div class="p-2">
+				<p class="font-secondary fs-60 fw-bold cl-cream-old"
+					data-aos="flip-right"
+					data-aos-duration="1500">Mempelai</p>
+				<p class="font-primary fs-14 fw-300"
+					data-aos="flip-up"
+					data-aos-duration="1500">Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+					pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya,
+					dan Dia menjadikan diantaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar
+					terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.
+					<br>(Q.S. Ar-rum:21)
+				</p>
+				<div class="d-flex justify-content-center align-items-center gap-3 pt-5">
+					<div class="groom"
+						data-aos="zoom-in-left"
+						data-aos-duration="1500">
+						<img src="<%= THIS %>/static/assets/img/minang-prime-groom-noimage.png"
+							alt="groom">
+					</div>
+					<div class="text-start">
+						<h3 class="font-tertiary"
+							data-aos="zoom-in-right"
+							data-aos-duration="1500">Tobi Andrean Jovano, S. Kom</h3>
+						<p class="font-primary fs-14 fw-300"
+							data-aos="zoom-in-right"
+							data-aos-duration="1500">Putra dari Bpk Khairunas & Ibu Indra Yeni</p>
+						<div class="sosmed"
+							data-aos="fade-up"
+							data-aos-duration="1500">
+							<a href="https://instagram.com/andreantobi79"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="cl-cream-old">
+								<i class="fa-brands fa-instagram"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex justify-content-center align-items-center gap-3 pt-5">
+					<div class="text-end">
+						<h3 class="font-tertiary"
+							data-aos="zoom-in-left"
+							data-aos-duration="1500">apt. Ulfa Marda Tillah, S. Farm</h3>
+						<p class="font-primary fs-14 fw-300"
+							data-aos="zoom-in-left"
+							data-aos-duration="1500">Putra dari Bpk Basri & Ibu Harlina</p>
+						<div class="sosmed"
+							data-aos="fade-up"
+							data-aos-duration="1500">
+							<a href="https://instagram.com/Ulfhamt10"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="cl-cream-old">
+								<i class="fa-brands fa-instagram"></i>
+							</a>
+						</div>
+					</div>
+					<div class="groom"
+						data-aos="zoom-in-right"
+						data-aos-duration="1500">
+						<img src="<%= THIS %>/static/assets/img/minang-prime-bride-noimage.png"
+							alt="bride">
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="event mw-600 text-center">
+			<div class="p-4">
+				<p class="font-secondary fs-60 fw-bold cl-cream-old"
+					data-aos="flip-right"
+					data-aos-duration="1500">Wedding Event</p>
+				<div class="DISINI">
+					<div class="timer"></div>
+				</div>
+				<div class="row gx-5">
+					<div class="col-12 col-md-6"
+						data-aos="flip-left"
+						data-aos-duration="1500">
+						<div class="card">
+							<div>
+								<h3 class="font-secondary">Akad Nikah</h3>
+								<p class="font-primary fw-300">Bertempat di:</p>
+								<p class="font-primary fw-500 fs-18">Kediaman Wanita</p>
+								<p class="font-primary fw-300 fs-14">Jorong Tigo Korong, Kec.Lubuk Tarok, Kab.Sijunjung</p>
+								<i class="fas fa-calendar-day mt-3"></i>
+								<p class="font-primary fw-500">Jum'at, 23 Mei 2025</p>
+								<i class="fas fa-clock mt-3"></i>
+								<p class="font-primary fw-500 pb-3">14:00 s/d 15:00 <br></p>
+								<a href="https://maps.app.goo.gl/r4DoUD9JKx5hHM9A7"
+									target="_blank"
+									rel="noopener noreferrer">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										fill="currentColor"
+										class="bi bi-pin-map mb-5"
+										viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z">
+										</path>
+										<path fill-rule="evenodd"
+											d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z">
+										</path>
+									</svg> Buka Map
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6"
+						data-aos="flip-right"
+						data-aos-duration="1500">
+						<div class="card">
+							<div>
+								<h3 class="font-secondary">Resepsi</h3>
+								<p class="font-primary fw-300">Bertempat di:</p>
+								<p class="font-primary fw-500 fs-18">Kediaman Wanita</p>
+								<p class="font-primary fw-300 fs-14">Jorong Tigo Korong, Kec.Lubuk Tarok, Kab.Sijunjung</p>
+								<i class="fas fa-calendar-day mt-3"></i>
+								<p class="font-primary fw-500">Senin, 26 Mei 2025</p>
+								<i class="fas fa-clock mt-3"></i>
+								<p class="font-primary fw-500 pb-3">10:00 s/d 22:00 <br></p>
+								<a href="https://maps.app.goo.gl/r4DoUD9JKx5hHM9A7"
+									target="_blank"
+									rel="noopener noreferrer">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										fill="currentColor"
+										class="bi bi-pin-map mb-5"
+										viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z">
+										</path>
+										<path fill-rule="evenodd"
+											d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z">
+										</path>
+									</svg> Buka Map
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+
+		<div class="gift mw-600 text-center">
+			<p class="font-secondary fs-60 fw-bold cl-cream-old"
+				data-aos="fade-up"
+				data-aos-duration="1500">Wedding Gift</p>
+			<p class="font-primary fw-300 pb-5">Doa restu Bapak/Ibu/Saudara/i merupakan karunia terindah bagi kami. Dan
+				jika memberi adalah ungkapan tanda kasih, dengan senang hati kami menerima kado secara cashless melalui:
+			</p>
+			<div class="d-flex flex-column gap-4 p-2">
+				<div class="card-bank bni"
+					data-aos="flip-right"
+					data-aos-duration="1500">
+					<p class="text-end"><img src="<%= THIS %>/static/assets/img/bank/bni.png"
+							alt=""></p>
+					<div class="text-start font-primary fs-14 fw-300">a/n Tobi Andrean Jovano</div>
+					<p class="text-start font-primary fs-22">
+						1227174359
+					</p>
+					<p class="text-start">
+						<button class="btn-salin"
+							onclick="copyValue('1227174359')">
+							<svg xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								fill="currentColor"
+								class="bi bi-clipboard-heart mb-5"
+								viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M5 1.5A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm5 0a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Z" />
+								<path
+									d="M3 1.5h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z" />
+								<path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982Z" />
+							</svg>
+							Salin
+						</button>
+					</p>
+				</div>
+				<div class="card-bank bri"
+					data-aos="flip-right"
+					data-aos-duration="1500">
+					<p class="text-end"><img src="<%= THIS %>/static/assets/img/bank/bri.png"
+							alt=""></p>
+					<div class="text-start font-primary fs-14 fw-300">a/n Ulfa Marda Tillah</div>
+					<p class="text-start font-primary fs-22">
+						553501014501535
+					</p>
+					<p class="text-start">
+						<button class="btn-salin"
+							onclick="copyValue('553501014501535')">
+							<svg xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								fill="currentColor"
+								class="bi bi-clipboard-heart mb-5"
+								viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M5 1.5A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm5 0a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Z" />
+								<path
+									d="M3 1.5h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z" />
+								<path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982Z" />
+							</svg>
+							Salin
+						</button>
+					</p>
+				</div>
+				<!-- <div class="card-bank addrs"
+					data-aos="flip-left"
+					data-aos-duration="1500">
+					<div class="d-flex justify-content-between">
+						<p class="font-primary fs-18">Alamat Pengiriman Kado</p>
+						<svg xmlns="http://www.w3.org/2000/svg"
+							width="60"
+							height="60"
+							fill="currentColor"
+							class="bi bi-house-heart"
+							viewBox="0 0 16 16">
+							<path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982Z" />
+							<path
+								d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
+						</svg>
+					</div>
+					<div class="text-start font-primary fs-16">a/n Adil Saputra Duha</div>
+					<p class="text-start font-primary fs-14 fw-300">
+						Komplek Perumahan Merpati Agung Blok B No. 3 Kel. Delima Kec. Binawidya Kota Pekanbaru -
+						Riau
+					</p>
+					<p class="text-start">
+						<button class="odas-btn btn-salin"
+							onclick="copyValue('Komplek Perumahan Merpati Agung Blok B No. 3 Kel. Delima Kec. Binawidya Kota Pekanbaru - Riau')">
+							<svg xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								fill="currentColor"
+								class="bi bi-clipboard-heart mb-5"
+								viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M5 1.5A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm5 0a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Z" />
+								<path
+									d="M3 1.5h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z" />
+								<path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982Z" />
+							</svg>
+							Salin
+						</button>
+					</p>
+				</div> -->
+			</div>
+		</div>
+
+		<div class="wish mw-600 text-center">
+			<p class="font-secondary fs-60 fw-bold cl-cream-old"
+				data-aos="fade-up"
+				data-aos-duration="1500">Wish for us</p>
+			<p class="font-primary fw-300 pb-5"
+				data-aos="zoom-in-down"
+				data-aos-duration="1500">Tulis semua harapan dan do'a terbaikmu untuk kedua mempelai di hari
+				bahagia mereka.
+			</p>
+			<div class="form p-2">
+				<div class="form-floating mb-3"
+					data-aos="fade-up"
+					data-aos-duration="1500">
+					<input type="text"
+						style="background-color: #B3882D; border: 3px solid #A94F00; border-radius: 20px; "
+						class="form-control"
+						id="nama-tamu"
+						value="<%= GUEST_NAME %>"
+						placeholder="name@example.com">
+					<label for="nama-tamu">Nama</label>
+				</div>
+				<div class="form-floating mb-3"
+					data-aos="fade-up"
+					data-aos-duration="1500">
+					<textarea class="form-control"
+						style="background-color: #B3882D; border: 3px solid #A94F00; border-radius: 20px; height: 200px"
+						placeholder="Leave a comment here"
+						id="msg-tamu"></textarea>
+					<label for="msg-tamu">Ucapan untuk Mempelai</label>
+				</div>
+				<div class="text-center pb-5"
+					data-aos="zoom-in-down"
+					data-aos-duration="1500">
+					<button id="btn-kirim"
+						onclick="sendGretting()"
+						class="btn-kirim">
+						<svg xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="currentColor"
+							class="bi bi-chat-heart-fill mb-5"
+							viewBox="0 0 16 16">
+							<path
+								d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15Zm0-9.007c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+						</svg>
+						Kirim
+					</button>
+					<button id="btn-kirim-disable"
+						class="btn-kirim-disable">
+						<div class="spinner-border"
+							role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</button>
+				</div>
+				<div id="section-msg">
+					<div class="mb-22">
+						<div class="font-secondary fs-44 fw-600 cl-cream-old mw-600"
+							data-aos="fade-up"
+							data-aos-duration="1500">
+							Harapan & do'a
+						</div>
+					</div>
+					<div class="col-sm-12 mb-50">
+						<div class="msg-area"
+							data-aos="fade-down"
+							data-aos-duration="1500">
+							<div id="msg-area"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<style>
+			.form-control:focus+label::after {
+				background-color: transparent !important;
+			}
+
+			.form-floating>.form-control-plaintext~label::after,
+			.form-floating>.form-control:focus~label::after,
+			.form-floating>.form-control:not(:placeholder-shown)~label::after,
+			.form-floating>.form-select~label::after {
+				background-color: transparent !important;
+			}
+
+		</style>
+
+		<% if
+			(GUEST_ID)
+			{
+			%>
+			<div class="attending">
+				<div class="container text-center">
+					<div class="row justify-content-sm-center">
+						<div class="col-12 mb-50 text-center">
+							<h2 class="font-secondary fs-60 fw-600 cl-cream-old"
+								data-aos="fade-down"
+								data-aos-duration="1500">
+								Are you attending?</h2>
+							<div class="font-primary fs-14 mw-600"
+								data-aos="fade-up"
+								data-aos-duration="1500">
+								Merupakan sebuah kebahagiaan untuk kami jika kamu berkenan hadir. Silahkan konfirmasi
+								lewat
+								tombol dibawah ini. Terima kasih.
+							</div>
+						</div>
+						<% if
+							(!GUEST_STATUS_CONFIRM)
+							{
+							%>
+							<div class="col-sm-12">
+								<button class="btn-kirim"
+									data-bs-toggle="modal"
+									id="btn-confirm"
+									data-bs-target="#exampleModal">Konfirmasi Kehadiran</button>
+								<button class="btn-kirim-disable"
+									style="margin:auto;"
+									id="btn-confirm-disable">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										fill="currentColor"
+										class="bi bi-check2"
+										viewBox="0 0 16 16">
+										<path
+											d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+									</svg>
+									Terima kasih sudah konfirmasi
+								</button>
+							</div>
+							<% }
+								else
+								{
+								%>
+								<div class="col-sm-12">
+									<button class="btn-kirim">
+										<svg xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											fill="currentColor"
+											class="bi bi-check2"
+											viewBox="0 0 16 16">
+											<path
+												d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+										</svg>
+										Terima kasih sudah konfirmasi
+									</button>
+								</div>
+								<% }
+									%>
+					</div>
+				</div>
+				<div class="modal fade"
+					id="exampleModal"
+					tabindex="-1"
+					aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="font-primary fs-18"
+									id="exampleModalLabel">Konfirmasi Kehadiran</h1>
+							</div>
+							<div class="modal-body">
+								<div class="mb-3">
+									<div class="btn-group"
+										style="width: 100%;"
+										role="group"
+										aria-label="Basic radio toggle button group">
+										<input type="radio"
+											class="btn-check"
+											name="confirm"
+											id="btnradio1"
+											value="HADIR"
+											autocomplete="off"
+											checked>
+										<label class="btn btn-outline-primary"
+											style="border-color: #A64D00; color: #A64D00;"
+											for="btnradio1">Hadir</label>
+
+										<input type="radio"
+											class="btn-check"
+											name="confirm"
+											id="btnradio2"
+											value="TIDAK HADIR"
+											autocomplete="off">
+										<label class="btn btn-outline-primary"
+											style="border-color: #A64D00; color: #A64D00;"
+											for="btnradio2">Tidak Hadir</label>
+									</div>
+								</div>
+								<div class="form-floating mb-3">
+									<input type="number"
+										class="form-control"
+										id="jml-tamu"
+										placeholder="0">
+									<label for="jml-tamu">Jumlah Tamu</label>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button"
+									class="btn-tutup"
+									data-bs-dismiss="modal">Tutup</button>
+								<button type="button"
+									class="btn-confirm"
+									data-bs-dismiss="modal"
+									onclick="sendConfirm()">Konfirmasi</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% }
+				%>
+				<div class="footer">
+					<div class="container text-center">
+						<div class="row justify-content-sm-center">
+							<div class="col-12 text-center">
+								<div class="font-primary fs-14">
+									E-Invitation
+								</div>
+								<div class="font-primary fs-12 fw-300">
+									Handcrafted results with ❤ somewhere in the world.<br>
+									Powered by
+								</div>
+								<div class="font-primary fs-12 fw-300">
+									<a href="<%= THIS %>"
+										target="_blank"
+										class="cl-cream-old fw-400"
+										rel="noopener noreferrer">Padang Invitation</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
+
+
+	<!-- AUDIO -->
+	<audio src="https://cdn.dazelpro.com/uploads/dazelinv/audio/lesungpipi.mp3"></audio>
+	<div class="play-stop">
+		<div id="btn-play">
+			<svg onclick="stopMusic()"
+				xmlns="http://www.w3.org/2000/svg"
+				width="20"
+				height="20"
+				fill="currentColor"
+				class="bi bi-volume-up"
+				viewBox="0 0 16 16">
+				<path
+					d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z" />
+				<path
+					d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z" />
+				<path
+					d="M10.025 8a4.486 4.486 0 0 1-1.318 3.182L8 10.475A3.489 3.489 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.486 4.486 0 0 1 10.025 8zM7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12V4zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11z" />
+			</svg>
+		</div>
+		<div id="btn-stop">
+			<svg onclick="playMusic()"
+				xmlns="http://www.w3.org/2000/svg"
+				width="20"
+				height="20"
+				fill="currentColor"
+				class="bi bi-volume-mute"
+				viewBox="0 0 16 16">
+				<path
+					d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM6 5.04 4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96V5.04zm7.854.606a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z" />
+			</svg>
+		</div>
+	</div>
+	<!-- AUDIO END -->
+
+	<!-- PROPERTI FOR JS -->
+	<input type="hidden"
+		id="id_tamu"
+		value="<%= GUEST_ID %>">
+	<input type="hidden"
+		id="event_date_count"
+		value="<%= TIMER %>">
+	<input type="hidden"
+		id="slug"
+		value="<%= SLUG %>">
+	<input type="hidden"
+		id="url_api"
+		value="<%= THIS_API %>">
+	<!-- END -->
+
+	<!-- SCRIPT PROPERTY -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+		crossorigin="anonymous"></script>
+	<script src="<%= THIS %>/static/assets/js/lib/simplyCountdown.min.js"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="<%= THIS %>/static/assets/js/minang-prime.js"></script>
+
+	<script>
+		AOS.init();
+
+		let dateEvent = document.getElementById('event_date_count').value;
+		const currentDate = new Date();
+		const eventDate = new Date(dateEvent);
+
+		if (currentDate.toDateString() === eventDate.toDateString()) {
+			// Acara sedang berlangsung
+			document.querySelector('.timer').style.display = 'none';
+			document.querySelector('.on-hold').style.display = 'block';
+		} else if (currentDate > eventDate) {
+			// Acara sudah berakhir
+			document.querySelector('.timer').style.display = 'none';
+			document.querySelector('.on-finish').style.display = 'block';
+		} else {
+			// Tampilkan timer countdown
+			simplyCountdown(".timer", {
+				year: eventDate.getFullYear(),
+				month: eventDate.getMonth() + 1,
+				day: eventDate.getDate() + 1
+			});
+		}
+	</script>
+
+</body>
+
+</html>

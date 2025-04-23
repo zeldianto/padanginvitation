@@ -432,6 +432,12 @@ body::-webkit-scrollbar {
 	color: white;
 }
 
+.bni {
+	background: linear-gradient(45deg, #005e6a, #005e6ac9, #005e6a88, #005e6a15);
+	background-size: 100% 100%;
+	color: white;
+}
+
 .shopeepay {
 	background: linear-gradient(45deg, #FE6233, #FE6233c7, #FE623370, #FE623336);
 	background-size: 100% 100%;
