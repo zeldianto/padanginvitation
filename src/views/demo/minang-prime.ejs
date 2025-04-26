@@ -78,27 +78,29 @@
 		<div id="cover"
 			class="cover-overlay">
 			<div class="content">
-				<div class="div-top">
-					<img data-aos="fade-down"
-						data-aos-duration="1500"
-						src="<%= THIS %>/static/assets/img/minang-prime-rumah-gadang.png"
-						alt="">
-					<h1 class="font-primary fs-16 mt-4">Maimbau Baralek</h1>
-					<h2 class="font-secondary fw-bold fs-60 mt-4"
-						data-aos="fade-down"
-						data-aos-duration="1500">Adil & Fani</h2>
-					<p class="font-primary">Minggu, 04 Februari 2024</p>
-				</div>
-				<div class="div-bottom">
-					<div class="card-tamu">
-						<p class="fs-12">Kepada Yth. <br>Bapak/Ibu/Saudara/i</p>
-						<p class="font-primary fs-18 p-3"
-							data-aos="zoom-in"
-							data-aos-duration="1500">Bima Sakti & Keluarga</p>
-						<button onclick="closeNav()"
-							class="open-button"
-							data-aos="fade-up"
-							data-aos-duration="1500">Buka Undangan</button>
+				<div class="content-wrapper">
+					<div class="div-top">
+						<img data-aos="fade-down"
+							data-aos-duration="1500"
+							src="<%= THIS %>/static/assets/img/minang-prime-rumah-gadang.png"
+							alt="">
+						<h1 class="font-primary fs-16 mt-4">Maimbau Baralek</h1>
+						<h2 class="font-secondary fw-bold fs-60 mt-4"
+							data-aos="fade-down"
+							data-aos-duration="1500">Adil & Fani</h2>
+						<p class="font-primary">Minggu, 04 Februari 2024</p>
+					</div>
+					<div class="div-bottom">
+						<div class="card-tamu">
+							<p class="fs-12">Kepada Yth. <br>Bapak/Ibu/Saudara/i</p>
+							<p class="font-primary fs-18 p-3"
+								data-aos="zoom-in"
+								data-aos-duration="1500">Bima Sakti & Keluarga</p>
+							<button onclick="closeNav()"
+								class="open-button"
+								data-aos="fade-up"
+								data-aos-duration="1500">Buka Undangan</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -326,43 +328,35 @@
 		</div>
 
 		<div class="gallery mw-600 text-center">
-			<p class="font-secondary fs-60 fw-bold cl-cream-old pb-5"
-				data-aos="fade-up"
-				data-aos-duration="1500">Our Moment</p>
-			<div class="collection"
-				data-aos="flip-right"
-				data-aos-duration="1500">
+			<p class="font-secondary fs-60 fw-bold cl-cream-old pb-5" data-aos="flip-right"
+			data-aos-duration="1500">Our Moment</p>
+			<div class="collection">
 				<div class="item gallery-item"
-					data-bs-toggle="modal"
-					data-bs-target="#imageModal"
+					
 					data-src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-1.jpg">
 					<img src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-1.jpg"
 						loading="lazy" />
 				</div>
 				<div class="item gallery-item"
-					data-bs-toggle="modal"
-					data-bs-target="#imageModal"
+					
 					data-src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-2.JPG">
 					<img src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-2.JPG"
 						loading="lazy" />
 				</div>
 				<div class="item gallery-item"
-					data-bs-toggle="modal"
-					data-bs-target="#imageModal"
+					
 					data-src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-3.JPG">
 					<img src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-3.JPG"
 						loading="lazy" />
 				</div>
 				<div class="item gallery-item"
-					data-bs-toggle="modal"
-					data-bs-target="#imageModal"
+					
 					data-src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-4.jpg">
 					<img src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-4.jpg"
 						loading="lazy" />
 				</div>
 				<div class="item gallery-item"
-					data-bs-toggle="modal"
-					data-bs-target="#imageModal"
+					
 					data-src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-5.jpg">
 					<img src="<%= THIS %>/static/assets/img/gallery/minang-prime-gallery-5.jpg"
 						loading="lazy" />
@@ -869,7 +863,73 @@
 		document.addEventListener("contextmenu", function (e) {
 			e.preventDefault();
 		});
+
+		function setCoverBackground() {
+			const coverElement = document.getElementById('cover');
+			const desktopImagePath = '/static/assets/img/minang-prime-1.jpg'; // Ganti dengan path desktop Anda
+			const mobileImagePath = '/static/assets/img/minang-prime-1.jpg';   // Ganti dengan path mobile Anda
+			const maxWidthMobile = 768; // Sesuaikan dengan breakpoint Anda
+
+			if (window.innerWidth <= maxWidthMobile) {
+				coverElement.style.backgroundImage = `url('${mobileImagePath}')`;
+			} else {
+				coverElement.style.backgroundImage = `url('${desktopImagePath}')`;
+			}
+		}
+
+		// Panggil saat halaman pertama kali dimuat
+		setCoverBackground();
+
+		// Panggil lagi saat ukuran jendela berubah (untuk mengakomodasi perubahan orientasi, dll.)
+		window.addEventListener('resize', setCoverBackground);
+		document.querySelectorAll('.gallery-item').forEach(item => {
+			item.addEventListener('click', function() {
+				const src = this.getAttribute('data-src');
+				const modalImg = document.getElementById('modalImage');
+				modalImg.src = src;
+				new bootstrap.Modal(document.getElementById('imageModal')).show();
+			});
+		});
 	</script>
+	<style>
+		#cover {
+			height: 100vh;
+			z-index: 9999;
+		}
+	
+		.cover-overlay {
+			height: 0%;
+			width: 100%;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			overflow-y: hidden;
+			transition: 0.3s;
+			background-size: cover !important;
+			background-repeat: no-repeat !important;
+			background-position: center !important;
+		}
+
+		.content-wrapper {
+			background-color: #ffffffa9;
+			padding: 30px;
+			border-radius: 15px; /* Membuat sudut rounded */
+			margin: auto; /* Memberikan sedikit jarak dari tepi */
+			max-width: 80%; /* Lebar maksimum kotak */
+			box-sizing: border-box; /* Memastikan padding tidak menambah lebar total */
+		}
+	
+		.open-button {
+			padding: 10px 30px;
+			cursor: pointer;
+			background-color: #A64D00;
+			color: #D8CAA7;
+			border: none;
+			border-radius: 30px;
+			transition: background-color 0.3s ease;
+		}
+	</style>
 
 </body>
 
