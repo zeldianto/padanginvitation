@@ -54,39 +54,41 @@
 
 	<div class="minang-prime">
 		<div id="cover"
-			class="cover-overlay">
+			class="cover-overlay" style="background-image: url('static/assets/img/gallery/ulfa-desktop.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
 			<div class="content">
-				<div class="div-top">
-					<img data-aos="fade-down"
-						data-aos-duration="1500"
-						src="<%= THIS %>/static/assets/img/minang-prime-rumah-gadang.png"
-						alt="">
-					<h1 class="font-primary fs-16 mt-4">Maimbau Baralek</h1>
-					<h2 class="font-secondary fw-bold fs-60 mt-4"
-						data-aos="fade-down"
-						data-aos-duration="1500">Ulfa & Tobi</h2>
-					<p class="font-primary">Senin, 26 Mei 2025</p>
-				</div>
-				<div class="div-bottom">
-					<% if
-						(GUEST_ID)
-						{
-						%>
-						<div class="card-tamu">
-							<p class="fs-12">Kepada Yth. <br>Bapak/Ibu/Saudara/i</p>
-							<p class="font-primary fs-18 p-3"
-								data-aos="zoom-in"
-								data-aos-duration="1500">
-								<%= GUEST_NAME
-									%>
-							</p>
-						</div>
-						<% }
+				<div class="content-wrapper">
+					<div class="div-top">
+						<img data-aos="fade-down"
+							data-aos-duration="1500"
+							src="<%= THIS %>/static/assets/img/minang-prime-rumah-gadang.png"
+							alt="">
+						<h1 class="font-primary fs-16 mt-4">Maimbau Baralek</h1>
+						<h2 class="font-secondary fw-bold fs-60 mt-4"
+							data-aos="fade-down"
+							data-aos-duration="1500">Ulfa & Tobi</h2>
+						<p class="font-primary">Senin, 26 Mei 2025</p>
+					</div>
+					<div class="div-bottom">
+						<% if
+							(GUEST_ID)
+							{
 							%>
-							<button onclick="closeNav()"
-								class="open-button"
-								data-aos="fade-up"
-								data-aos-duration="1500">Buka Undangan</button>
+							<div class="card-tamu">
+								<p class="fs-12">Kepada Yth. <br>Bapak/Ibu/Saudara/i</p>
+								<p class="font-primary fs-18 p-3"
+									data-aos="zoom-in"
+									data-aos-duration="1500">
+									<%= GUEST_NAME
+										%>
+								</p>
+							</div>
+							<% }
+								%>
+								<button onclick="closeNav()"
+									class="open-button"
+									data-aos="fade-up"
+									data-aos-duration="1500">Buka Undangan</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -653,6 +655,46 @@
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="<%= THIS %>/static/assets/js/minang-prime.js"></script>
 
+	<style>
+		#cover {
+			height: 100vh;
+			z-index: 9999;
+		}
+	
+		.cover-overlay {
+			height: 0%;
+			width: 100%;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			overflow-y: hidden;
+			transition: 0.3s;
+			background-size: cover !important;
+			background-repeat: no-repeat !important;
+			background-position: center !important;
+		}
+
+		.content-wrapper {
+			background-color: #ffffff91;
+			padding: 30px;
+			border-radius: 15px; /* Membuat sudut rounded */
+			margin: auto; /* Memberikan sedikit jarak dari tepi */
+			max-width: 80%; /* Lebar maksimum kotak */
+			box-sizing: border-box; /* Memastikan padding tidak menambah lebar total */
+		}
+	
+		.open-button {
+			padding: 10px 30px;
+			cursor: pointer;
+			background-color: #A64D00;
+			color: #D8CAA7;
+			border: none;
+			border-radius: 30px;
+			transition: background-color 0.3s ease;
+		}
+	</style>
+
 	<script>
 		AOS.init();
 
@@ -676,6 +718,27 @@
 				day: eventDate.getDate() + 1
 			});
 		}
+	</script>
+
+	<script>
+		function setCoverBackground() {
+			const coverElement = document.getElementById('cover');
+			const desktopImagePath = 'static/assets/img/gallery/ulfa-desktop.jpg'; // Ganti dengan path desktop Anda
+			const mobileImagePath = 'static/assets/img/gallery/ulfa-mobile.jpg';   // Ganti dengan path mobile Anda
+			const maxWidthMobile = 768; // Sesuaikan dengan breakpoint Anda
+
+			if (window.innerWidth <= maxWidthMobile) {
+				coverElement.style.backgroundImage = `url('${mobileImagePath}')`;
+			} else {
+				coverElement.style.backgroundImage = `url('${desktopImagePath}')`;
+			}
+		}
+
+		// Panggil saat halaman pertama kali dimuat
+		setCoverBackground();
+
+		// Panggil lagi saat ukuran jendela berubah (untuk mengakomodasi perubahan orientasi, dll.)
+		window.addEventListener('resize', setCoverBackground);
 	</script>
 
 </body>
